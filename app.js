@@ -8,7 +8,7 @@ var getReferences = require("./routes/get_references"),
 	getJournals = require("./routes/get_journals");
 
 module.exports = function(config){
-	console.log(config.mongoose)
+	
 	mongoose.connect(process.env.MONGOLAB_URI);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db
 	var db = mongoose.connection;
 	db.on("error", console.error.bind(console, "connection error"));

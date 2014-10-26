@@ -1,1 +1,1 @@
-web: node main.js $MONGOLAB_URI
+web: node main.js $MONGOLAB_URI $SERVER_PORT
