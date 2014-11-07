@@ -11,12 +11,12 @@ var getReferences = require("./routes/get_references"),
 	freeRefs = require("./routes/free_refs"),
 	home = require("./routes/home"),
 	about = require("./routes/about"),
-	api = require("./routes/api"),
-	process.env.PWD = process.cwd();
+	api = require("./routes/api");
+
 
 module.exports = function(config){
 	
-	mongoose.connect(config.mongoose.host, config.mongoose.port, config.mongoose.db);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
+	mongoose.connect(process.env.MONGOLAB_URI);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
 	var db = mongoose.connection;
 	db.on("error", console.error.bind(console, "connection error"));
 	db.once("open", function callback(){
@@ -27,12 +27,12 @@ module.exports = function(config){
 		//and I can see it coming back to bite me by leaving it out
 		//but when I place it in here the main.js can't find the server 
 	});
-
-	app.set("views", path.resolve(process.env.PWD, "/views"));
+	var app = express()
+	app.set("views", path.resolve(process.cwd(), "views"));
 	app.set("view engine", "jade");
 
 	app.use(express.urlencoded());
-	app.use(express.static(path.resolve(__dirname, "public")))
+	app.use(express.static(path.resolve(process.cwd(), "public")))
 
 
 	//start of routes for progressive enhancement approach

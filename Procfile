@@ -1,1 +1,1 @@
-web: node main.js $MONGOOSE_HOST $MONGOOSE_DB
+web: node main.js $MONGOLAB_URI
