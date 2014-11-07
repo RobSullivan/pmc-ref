@@ -30,6 +30,7 @@ var articleSchema = new Schema({
 	free_access: Boolean,
 	abstract: String,
 	citation_count: Number,
+	citation_count_at_two: Number,
 	citation_group: String,// value is string value of a range 25..50 if citation count is between those two values.
 	reference_count: Number,
 	group: String, //value is base for articles whose reference and citation data I've collected
@@ -136,5 +137,3 @@ var ArticleModel = connection.model('ArticleModel', articleSchema);// what's the
 
 
 module.exports = ArticleModel; 
-
-

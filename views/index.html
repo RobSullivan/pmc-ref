@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>PMC reference checker</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+<h2>PMC reference checker</h2>
+
+	
+
+	<form id="doi" class="doi" method="GET" action="/api/v1/articles/status/">
+	
+
+	<label for="enter_doi">Check status:</label>
+	<input type="text" name="doi" id="enter_doi"  placeholder="Enter a doi" class="input-text" />
+	<input id="submit_doi" type="submit" value="submit" />
+
+
+
+
+	
+	</form>
+
+	<form id="references" method="GET" action="/api/v1/references/free/">
+		<label for="doi_references">Show free references:</label>
+		<input type="text" name="doi" id="doi_references" placeholder="Enter a doi" class="input-text" />
+		<input id="show_refs" type="submit" value="submit"/>
+	</form>
+	
+	
+
+
+
+
+
+
+</body>
+</html>

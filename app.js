@@ -5,7 +5,12 @@ var express = require("express"),
 
 var getReferences = require("./routes/get_references"),
 	getArticles = require("./routes/get_articles"),
-	getJournals = require("./routes/get_journals");
+	getJournals = require("./routes/get_journals"),
+	status = require("./routes/status"),
+	freeRefs = require("./routes/free_refs"),
+	home = require("./routes/home"),
+	about = require("./routes/about"),
+	api = require("./routes/api");
 
 module.exports = function(config){
 	
@@ -21,14 +26,29 @@ module.exports = function(config){
 		//but when I place it in here the main.js can't find the server 
 	});
 
-	var app = express();	
-	
-	app.use(express.urlencoded());
+	app.set("views", path.resolve(__dirname, "views"));
+	app.set("view engine", "jade");
 
-	app.get("/", function(request, response){
-		//render a template
-		response.send(200, "Welcome to PMC-REF [beta]")
+	app.use(express.urlencoded());
+	app.use(express.static(path.resolve(__dirname, "public")))
+
+
+	//start of routes for progressive enhancement approach
+	app.get("/api/v1/articles/status/", function(request, response){
+		status(request, response, db);
 	});
+
+	app.get("/api/v1/references/free/", function(request, response){
+		freeRefs(request, response, db);
+	});
+
+
+	//end of routes for progressive enchancement approach
+
+
+	app.get("/", home);
+	app.get("/about", about);
+	app.get("/api", api);
 
 	app.get("/api/v1/articles/doi/:doi?", function(request, response){
 		getArticles(request, response, db)

@@ -9,12 +9,11 @@ module.exports = function(request, response, mongoose){
 	//VALIDATE THE DOI WITH REGEXP \b(10[.][0-9]{4,}(?:[.][0-9]+)*\/(?:(?!["&\'<>])[[:graph:]])+)\b
 	//see p147 of JavaScript Testing Recipes 
 
-	var doi = request.params.doi,
-		free = request.query.free,  // to use without doi param if want all free articles
-		references = request.query.references,
-		count = request.query.count,
-		citations = request.query.citations
-		errors = [];
+	var query = request.query
+	var doi = query.doi
+
+		
+	var	errors = [];
 
 	//do some checking on doi format?
 	//do some checking on references. For example can pass false and it will give all refs.
@@ -29,7 +28,7 @@ module.exports = function(request, response, mongoose){
 	
 	//choose query to run based on condtions of params and query...bleugh.
 	//need to populate journal path with journal title.
-	if(doi && references && count==="percent"){//this condition at the top because checking doi and refs will be matched before it ever gets to count.
+	//this condition at the top because checking doi and refs will be matched before it ever gets to count.
 		//need to refactor this asap.
 		//get ObjectId from doi
 		ArticleModel.find({doi:doi}, "references" ,function(err, result){
@@ -58,50 +57,7 @@ module.exports = function(request, response, mongoose){
 			
 		})
 		
-	}else if(doi && references ==="free"){
-		ArticleModel.find({doi: doi})
-				.populate({
-					path: "references",
-					match: {free_access: true},
-					select:"-_id -is_ref_of -__v -references -abstract"
-				})
-				.populate({path: "journal", select: "title"})
-				.select("-_id -is_ref_of -__v")
-				.exec(function(error, article){
-					if(error){
-						response.json(500, {error: error.message});
-					} else{
-						response.json(200, {article: article});
-					}
-				});
-	} else if(doi && citations ==="free"){
-		ArticleModel.find({doi: doi})
-				.populate({
-					path: "is_ref_of",
-					match: {free_access: true},
-					select:"-_id -references -is_ref_of -__v"
-				})
-				.select("-_id -references -__v")
-				.exec(function(error, article){
-					if(error){
-						response.json(500, {error: error.message});
-					} else{
-						response.json(200, {article: article});
-					}
-				});
-	} else if(doi){
-		ArticleModel.find({doi: doi})
-					.populate("references", "-_id -is_ref_of -__v")
-					.populate("journal", "-_id title")
-					.select("-_id -is_ref_of -__v")
-					.exec(function(error, article){
-					if(error){
-						response.json(500, {error: error.message});
-					} else{
-						response.json(200, {article: article});
-					}
-				});
-	}  //how to contend with a doi but the wrong query?
+	  //how to contend with a doi but the wrong query?
 
 	if(errors.length > 0) return response.json(400, {errors: errors});
 

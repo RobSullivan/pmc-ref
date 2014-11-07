@@ -18,14 +18,16 @@ var articleSchema = new Schema({
 	
 	
 
+	//use default id
+	//_id: ObjectId,
 	title: { type: String, index:true}, 
 	doi: { type: String, index:true}, // "10.1038/nature11413" format 
-	pmid: {type: Number, index: true}, 
+	pmid: {type: Number, index: true},
 	pmcid: String,
 	author: String,
 	license: String,
-	references: [{ type: ObjectId, ref: 'ArticleModel' }], //refs array will be composed of ids of other docs in db. Is _id ObjectId? Type should be ObjectId not Number.
-	is_ref_of: [{ type: ObjectId, ref: 'ArticleModel'}], // ref to Article where it appears in the reference section. It could be the reference in more than one article in db.
+	references: [{ type: ObjectId, ref: "ArticleModel" }], //refs array will be composed of ids of other docs in db. Is _id ObjectId? Type should be ObjectId not Number.
+	is_ref_of: [{ type: ObjectId, ref: "ArticleModel"}], // ref to Article where it appears in the reference section. It could be the reference in more than one article in db.
 	journal: {type: ObjectId, ref: "JournalModel"}, 
 	volume: Number,
 	date: Date,
@@ -33,7 +35,14 @@ var articleSchema = new Schema({
 	link: String,// "http://dx.doi.org/" link - concatenate with doi field
 	spage: String,
 	free_access: Boolean,
-	abstract: String
+	abstract: String,
+	citation_count: Number,
+	citation_count_at_two: Number,
+	citation_group: String,// value is string value of a range 25..50 if citation count is between those two values.
+	reference_count: Number,
+	group: String, //value is base for articles whose reference and citation data I've collected
+	sub_group: String // value is either test or train. Train is data is used to train algorithms. Test group is used to test algorithms
+
 
 
 
