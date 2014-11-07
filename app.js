@@ -1,7 +1,7 @@
 var express = require("express"),
 	http = require("http"),
-	MongoClient = require("mongodb").MongoClient,
 	path = require("path"),
+	MongoClient = require("mongodb").MongoClient,
 	mongoose = require("mongoose");
 
 var getReferences = require("./routes/get_references"),
