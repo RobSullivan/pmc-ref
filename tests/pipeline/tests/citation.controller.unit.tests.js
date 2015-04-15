@@ -523,7 +523,7 @@ suite("CitationController", function(){
 
 	});
 
-	suite.only("#upsertDocs", function(){
+	suite("#upsertDocs", function(){
 
 		var steps, pmidWithExistingCitations, pmidWithOneNewCitation, existingPmidObjectId, newPmidObjecetId;
 		//after #parseResponse take the array of pmids and upsert on the array. Follow #existingPmids format.

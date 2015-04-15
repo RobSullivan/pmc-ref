@@ -210,7 +210,7 @@ suite("#createDocument", function(){
 		})
 	})
 
-	test.only("update doc in database", function(done){
+	test("update doc in database", function(done){
 		//Validation occurs when a document attempts to be saved, after defaults have been applied
 		
 

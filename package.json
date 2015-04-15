@@ -1,8 +1,21 @@
 {
   "name": "pmc-ref",
   "version": "0.0.1",
+  
+  "description": "pmc-ref checks which references of an article are free to read in PubMed Central.",
+  "keywords": ["research", "communication", "free"],
+
+  "author": "Robert Sullivan",
+
+  "repository":{
+    "type":"git",
+    "url": "https://github.com/RobSullivan/pmc-ref"
+
+    },
+
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js" 
+
   },
   "dependencies": {
     "express": "3.4.7",
@@ -21,6 +34,7 @@
     "async": "0.9.0",
     "xmldoc": "0.1.2",
     "jade": "~1.7.0",
-    "newrelic": "~1.13.2"
+    "newrelic": "~1.13.2",
+    "underscore": "*"
   }
 }

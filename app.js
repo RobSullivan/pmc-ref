@@ -1,4 +1,4 @@
-require("newrelic");
+
 
 var express = require("express"),
 	http = require("http"),
@@ -18,7 +18,7 @@ var getReferences = require("./routes/get_references"),
 
 module.exports = function(config){
 	
-	mongoose.connect(process.env.MONGOLAB_URI);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
+	mongoose.connect(config.mongoose.host, config.mongoose.port, config.mongoose.db);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
 	var db = mongoose.connection;
 	db.on("error", console.error.bind(console, "connection error"));
 	db.once("open", function callback(){
