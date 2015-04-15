@@ -13,17 +13,13 @@ Given a digital object identifier (doi) PMC reference checker will return the pe
 
 ###Set up###
 
-pmc-ref requires [Node.js](https://nodejs.org/download/) 0.10+ and 
-
-[MongoDB](http://www.mongodb.org/downloads) 2.4.9 and above.
+pmc-ref requires [Node.js](https://nodejs.org/download/) 0.10+ and  [MongoDB](http://www.mongodb.org/downloads) 2.4.9 and above.
 
 
 
 ##Loading test data into MongoDB##
 
-Once Node and MongoDB are installed download and unzip data from [here]
-
-(https://drive.google.com/file/d/0B3AgUDfIExOnNExTdmtjdjgxNk0/view).
+Once Node and MongoDB are installed download and unzip data from [here](https://drive.google.com/file/d/0B3AgUDfIExOnNExTdmtjdjgxNk0/view).
 
 In a terminal start mongod running with `mongod` and in a new terminal 
 
@@ -35,11 +31,9 @@ From there run the command
 
 followed by
 
-`mongorestore --collection journalmodels --db pmcref journalmodels.bson
+`mongorestore --collection journalmodels --db pmcref journalmodels.bson`
 
-Start an instance of mongo with the `mongo` command and check there is some 
-
-data!
+Start an instance of mongo with the `mongo` command and check there is some data!
 
 `db.articlemodels.find({"doi":"10.1038/nature10158"})`
 
@@ -49,58 +43,46 @@ data!
 
 ###Getting started###
 
-Once the test data has been loaded, clone this repo locally and run `npm 
+Once the test data has been loaded, clone this repo locally and run `npm install` to install the dependencies found in package.json.
 
-install` to install the dependencies found in package.json.
-
-If installing on Windows these instructions might be useful for deciphering 
-
-install errors https://github.com/TooTallNate/node-gyp#installation
+If installing on Windows these instructions might be useful for deciphering install errors https://github.com/TooTallNate/node-gyp#installation
 
 
 ##Up and running##
 
-##On Windows##
+For Windows users:
 
-1. Start the mongod server: `mongod`
+- Start the mongod server: `mongod`
 
-2. In a new terminal cd to the project directory which will contain main.js 
+- In a new terminal cd to the project directory which will contain main.js and set the following:
 
-and set the following:
+`set MONGOOSE_HOST=mongodb://localhost/`,
+`set MONGOOSE_DB=pmcref`,
+`set SERVER_PORT=1337`,
 
-`set MONGOOSE_HOST=mongodb://localhost/`
-`set MONGOOSE_DB=pmcref`
-`set SERVER_PORT=1337`
-
-3. run the command
+- run the command
 
 `node main.js %MONGOOSE_HOST% %MONGOOSE_DB% %SERVER_PORT%`
 
-4. open browser at [http://localhost:1337/](http://localhost:1337/)
+- open browser at [http://localhost:1337/](http://localhost:1337/)
 
 
 
 ###Running tests###
 
-Some attempt at TDD was made with this project and it was very much a 
-
-learn-as-you-go approach.
+Some attempt at TDD was made with this project and it was very much a learn-as-you-go approach.
 
 Subsequently there is no way to run all the tests with a single command.
 
-Some tests are being skipped and some are failing, possibly due to defunct 
+Some tests are being skipped and some are failing, possibly due to defunct methods.
 
-methods.
-
-Run tests with caution and consideration : ) I've opened an [issue]
-
-(https://github.com/RobSullivan/pmc-ref/issues/7) to clean these up.
+Run tests with caution and consideration...I've opened an [issue](https://github.com/RobSullivan/pmc-ref/issues/7)..
 
 If you would like to see what happens though a good place to start is 
 
-tests\pipeline\tests with the command mocha --ui tdd -R list 
+tests\pipeline\tests with the command 
 
-document.controller.unit.tests.js
+`mocha --ui tdd -R list document.controller.unit.tests.js`
 
 ###Using the pipeline to collect more data###
 
@@ -108,9 +90,7 @@ To update
 
 ###Deploying to Heroku###
 
-require("newrelic"); has been removed from line 1 of app.js to avoid having 
-
-to install Heroku and use foreman to run the app locally.
+require("newrelic"); has been removed from line 1 of app.js to avoid having to install Heroku and use foreman to run the app locally.
 
 
 
