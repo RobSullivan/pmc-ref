@@ -91,6 +91,10 @@ To update
 
 require("newrelic"); has been removed from line 1 of app.js to avoid having to install Heroku and use foreman to run the app locally.
 
+###Wiki###
+
+Read more about how things work over on the [wiki](https://github.com/RobSullivan/pmc-ref/wiki)
+
 
 
 
