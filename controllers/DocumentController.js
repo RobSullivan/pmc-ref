@@ -77,7 +77,7 @@ DocumentController.prototype.getQueue = function(callback) {
 
 DocumentController.prototype.getPmid = function(callback){
 
-	ArticleModel.findOne({year:{$exists:false}}, "pmid", function(err, result){
+	ArticleModel.findOne({title:{$exists:false}}, "pmid", function(err, result){
 		if(err) console.log(err);
 		console.log("pmid is: "+ result["pmid"]);
 			callback(null, result["pmid"])
