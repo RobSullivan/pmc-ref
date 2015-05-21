@@ -11,9 +11,6 @@ var ignorePmid = [0];
 module.exports = function collect_references(){
 
 
-//the order of the updateExisting and addNew presumes some exist and some are new.
-
-
 	var seedObjectId;
 	var seedPmid;
 
@@ -82,78 +79,5 @@ async.waterfall([function(callback){
 		});
 	}
 });
-
-
-
-
-
-// async.waterfall([function(callback){
-
-// 	referencesController.getPmid(callback);
-
-// }, function(pmid, callback){
-
-// 	seedPmid = pmid["pmid"];
-
-// 	seedObjectId = pmid["_id"];
-
-// 	console.log("getting data for: "+seedPmid);
-
-// 	referencesController.fetchReferences(seedPmid, callback);
-
-// }, function(response, callback){
-
-// 	var data = response.body;
-
-// 	referencesController.referencesExist(data, callback);
-
-// }, function(exist, refPmids, callback){
-
-// 	if(exist === false){
-
-// 		ignorePmid.push(seedPmid);
-
-// 		callback(true); //break the waterfall chain https://github.com/caolan/async/issues/11
-
-// 	}else{
-// 		//console.log("exist: "+exist)
-// 		referencesController.parseResponse(refPmids, callback);
-
-// 	}
-// }, function(pmidArray, callback){
-
-
-// 	referencesController.sortPmids(pmidArray, callback);
-
-// }, function(existingPmids, newPmids, callback){
-
-	
-
-// 	globalNewPmids = newPmids;
-
-// 	referencesController.updateExistingPmids(existingPmids, seedObjectId, callback);
-// 	//discard the results of updateExistingPmids
-
-// }, function(discard, seedObjectId, callback){
-
-// 	console.log("globalNewPmids: "+globalNewPmids);
-// 	referencesController.addPmidsToDb(globalNewPmids, seedObjectId, callback);
-
-// }, function(fin, callback){
-
-// 	ArticleModel.populateReferences(seedObjectId, function(err, result){
-// 		if(err){
-// 			callback(null, err);
-// 		}else{
-// 			callback(null, result);
-// 		}
-// 	});
-// }], function(err, result){
-// 	if(err){
-// 		console.log(err);
-// 	}else{
-// 		console.log(result);
-// 	}
-// });
 
 }

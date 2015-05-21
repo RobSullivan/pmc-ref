@@ -26,7 +26,7 @@ ReferencesController.prototype.getPmid = function(ignorePmid, callback){
 	*/
 	
 	this.ignorePmid = ignorePmid;
-	ArticleModel.findOne({group:"base",pmid: {$nin: ignorePmid}, references:{$size:30}}, "pmid", function(err, results){
+	ArticleModel.findOne({group:"base",pmid: {$nin: ignorePmid}, references:{$size:0}}, "pmid", function(err, results){
 		if(err){
 			callback(null, err);			
 		} 
