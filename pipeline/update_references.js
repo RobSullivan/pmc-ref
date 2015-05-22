@@ -55,13 +55,15 @@ async.waterfall([function(callback){
 
 }, function(pmids, callback){
 
-	if(pmids.length <= 30){//if pmids.length == current size of references field, getPmid will not move on from current pmid
-		console.log("no new citations to add");
-		ignorePmid.push(seedPmid);//second case where pmid needs to be ignored
-		callback(true);
-	}else{
-		referencesController.upsertDocs(pmids, seedObjectId, callback);
-	}
+	// if(pmids.length <= 30){//if pmids.length == current size of references field, getPmid will not move on from current pmid
+	// 	console.log("no new citations to add");
+	// 	ignorePmid.push(seedPmid);//second case where pmid needs to be ignored
+	// 	callback(true);
+	// }else{
+	// 	referencesController.upsertDocs(pmids, seedObjectId, callback);
+	// }
+
+	referencesController.upsertDocs(pmids, seedObjectId, callback);
 
 
 
