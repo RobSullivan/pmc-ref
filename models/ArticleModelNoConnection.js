@@ -31,7 +31,7 @@ var articleSchema = new Schema({
 	journal: {type: ObjectId, ref: "JournalModel"}, 
 	volume: Number,
 	date: Date,
-	year: String,
+	year: Number,
 	link: String,// "http://dx.doi.org/" link - concatenate with doi field
 	spage: String,
 	free_access: Boolean,
