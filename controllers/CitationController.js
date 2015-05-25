@@ -29,7 +29,7 @@ CitationController.prototype.getPmid = function(ignorePmid, callback){// get cit
 	*/
 	//$nin: [24563719, 24672386, 25029550, 0] 
 	
-	ArticleModel.findOne({title:{$exists: true}, citation_count:{$exists:false}, pmid:{$nin: ignorePmid}}, "pmid", function(err, results){
+	ArticleModel.findOne({title:{$exists: true}, citation_count:{$exists:false}, year:{$lt:2013}, pmid:{$nin: ignorePmid}}, "pmid", function(err, results){
 		if(err){
 			callback(null, err);
 		}else{
@@ -120,101 +120,6 @@ CitationController.prototype.parseResponse = function(citationLinkSet, callback)
 };
 
 
-// CitationController.prototype.existingPmids = function(pmids, callback){
-// this.pmids = pmids;
-	
-		
-// 	ArticleModel.find({pmid: {$in: this.pmids}}, "pmid", function(err, result){
-// 		if(err){
-// 			callback(err)
-// 		}else{
-// 		callback(null, result)
-// 	}
-// 	});
-	
-// };
-
-// CitationController.prototype.sortPmids = function(pmidArray, callback){
-
-// 	var toSort = pmidArray;
-
-// 	this.existingPmids(pmidArray, function(err, exist){
-
-// 		if(exist === undefined || exist.length === 0){
-// 			callback(null, toSort);
-// 		}else{
-
-// 			var pmidsExist = _.pluck(exist, "pmid");
-
-// 			var newPmids = _.difference(toSort, pmidsExist);
-
-// 			callback(err, newPmids, pmidsExist);
-// 		}
-
-// 	});
-
-	
-
-// };
-
-
-// CitationController.prototype.addNewPmidsToDb = function(newPmids, seedPmidObjectId, callback){
-
-// 	var documentArray = [];
-	
-// 	for(var i = 0, l = newPmids.length; i < l; i++){
-
-// 		var documentObject = {"pmid": newPmids[i], "references": seedPmidObjectId};
-// 		documentArray.push(documentObject);
-
-// 	}
-
-// 	ArticleModel.create(documentArray, function(err, result){
-// 		if(err){
-// 			callback(null, err);
-// 		}else{
-// 			//console.log("added "+ result)
-// 			callback(null, result);
-// 		}
-// 	})
-				
-
-// };
-
-// CitationController.prototype.updateExistingPmids = function(existingPmids, seedPmidObjectId, callback){
-
-// 	var cbErr;
-// 	var finalCbResult;
-// 	var timeoutCallback = callback;
-	
-	
-
-
-	
-	
-// 	for(var i = 0, l = existingPmids.length; i<l; i++){
-// 					console.log("existing pmid: "+existingPmids[i])
-// 					ArticleModel.findOneAndUpdate({pmid: existingPmids[i]}, {$addToSet: {references: seedPmidObjectId}}, function(err, result){
-// 						if(err){
-// 							cbErr = err;
-// 						}else{
-// 							finalCbResult = result;
-// 						}
-							
-							
-// 					})
-// 				}
-
-// 	setTimeout(function(timeoutCallback){
-		
-// 		callback(null, finalCbResult, seedPmidObjectId);
-// 	}, 500);
-
-
-	
-// };
-
-
 CitationController.prototype.upsertDocs = function(pmids, seedObjectId, callback){
 
 	var cbErr;
@@ -233,6 +138,7 @@ CitationController.prototype.upsertDocs = function(pmids, seedObjectId, callback
 						if(err){
 							cbErr = err;
 						}else{
+							//console.log("result of update " + result)
 							finalCbResult = result;
 						}
 							
@@ -243,7 +149,7 @@ CitationController.prototype.upsertDocs = function(pmids, seedObjectId, callback
 	setTimeout(function(timeoutCallback){
 		
 		callback(null, finalCbResult, seedObjectId);
-	}, 1500);//give it 1.5s for pmids to be added before calling back out of this. 
+	}, 2000);//give it 1.5s for pmids to be added before calling back out of this. 
 
 }
 	

@@ -9,7 +9,7 @@ var citationController = new CitationController();
 var ignorePmid = [0];
 module.exports = function collect_citations(){
 
-	//update getPmid method to search for pmids with 1+ is_ref_of values
+	
 
 
 	var seedObjectId;
@@ -53,10 +53,14 @@ async.waterfall([function(callback){
 		
 	}
 }, function(pmids, callback){
+	//this condition is needed because every document has been collected as a citation or reference of another.
+	//if when explicity collecting citations for current document and only one exists, this condition assumes
+	// we have the citation already and so can move on. 
+	if(pmids.length <= 1){//if pmids.length == current size of references field, getPmid will not move on from current pmid
 
-	if(pmids.length <= 34){//if pmids.length == current size of references field, getPmid will not move on from current pmid
-		console.log("already has 13 citations, probably already have it");
+		console.log("already has 1 citations, probably already have it");
 		ignorePmid.push(seedPmid);
+		//should set citation_count field here so getPmid ignores it.
 		console.log("number of pmids to ignore "+ignorePmid.length);
 		callback(true);
 
@@ -69,11 +73,12 @@ async.waterfall([function(callback){
 	if(err){
 		console.log("error: "+err);
 	}else{
-
+		console.log("about to populateCitations...this might take a while.")
 		ArticleModel.populateCitations(seedObjectId, function(err, result){
 		if(err){
 			console.log(err);
 		}else{
+			console.log("waiting is over!")
 			console(result);
 		}
 	});

@@ -37,8 +37,16 @@ Start an instance of mongo with the `mongo` command and check there is some data
 
 `db.journalmodels.find({"title":"Nature"})`
 
-[Read more about the data on the wiki](https://github.com/RobSullivan/pmc-ref/wiki/Schemas)
+####Create indexes
+A few indexes are needed.
 
+I've found adding indexes to pmid, references and is_ref_of fields help.
+
+To add an index to a field use the command `db.articlemodels.createIndex({pmid: 1})
+
+Adding multikey indexes to the references and is_ref_of field does mean the size of the indexes gets quite large.
+
+[Read more about the data on the wiki](https://github.com/RobSullivan/pmc-ref/wiki/Schemas)
 
 ###Getting started###
 

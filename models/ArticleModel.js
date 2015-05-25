@@ -85,7 +85,9 @@ articleSchema.statics.populateCitations = function(articleId, callback){
 	var Article = mongoose.model("ArticleModel");
 	//seedPmidObjectId
 	//find all document where seedPmidObjectId is a value
+	console.log("in populateCitations method of ArticleModel")
 	this.find({references: articleId}, function(err, results){
+
 
 		if(err) console.log(err);
 
