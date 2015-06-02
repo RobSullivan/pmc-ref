@@ -58,6 +58,10 @@ module.exports = function(config){
 		getArticles(request, response, db)
 	});
 
+
+	// #2
+
+
 	//currently not doing anything.
 	app.get("/v1/articles/:doi/references/:param?", function(request, response){
 		getReferences(request, response, db);
