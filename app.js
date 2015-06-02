@@ -14,6 +14,7 @@ var getReferences = require("./routes/get_references"),
 	home = require("./routes/home"),
 	about = require("./routes/about"),
 	api = require("./routes/api");
+	// #2
 
 
 module.exports = function(config){
@@ -58,19 +59,22 @@ module.exports = function(config){
 		getArticles(request, response, db)
 	});
 
+	
+	app.get("/api/v1/journals/title/:title?", function(request, response){
+		getJournals(request, response, db)// - displays articles by journal
+	})
+
 
 	// #2
 
 
-	//currently not doing anything.
+	//currently not doing anything?
 	app.get("/v1/articles/:doi/references/:param?", function(request, response){
 		getReferences(request, response, db);
 	});
 
-	//not implemented
-	app.get("/api/v1/journals/title/:title?", function(request, response){
-		getJournals(request, response, db)// - displays articles by journal
-	})
+	
+	
 
 	//to implement: adding data
 	//app.post("/v1/article/insert/:doi")
