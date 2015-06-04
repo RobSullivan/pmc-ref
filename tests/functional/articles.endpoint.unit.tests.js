@@ -1,7 +1,6 @@
 var request = require("supertest"),
 	app = require("../../app"),
 	mongoose = require("mongoose");
-	//main = require("../utils/main");
 
 
 //from Mastering Web Application Development with Express
@@ -10,8 +9,8 @@ describe("GET /", function(){
 
 
 
-	//what if I start main before?
 	before(function(done){
+		
 		config = {
 			mongoose: {
 				host : 'mongodb://localhost/',
@@ -31,9 +30,8 @@ describe("GET /", function(){
 	it("response is successful", function(done){
 		request(app)
 			.get("/")
-			//.set("Accept", "application/json")
-			//.expect("Content-Type", /json/)
-			.expect(200)//done was here. Why? Removing it removed double call back warning.
+			.expect("Content-Type", /html/)
+			.expect(200)
 			.end(function(err, res){
 				if(err) throw err;
 				done();
