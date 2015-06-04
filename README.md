@@ -15,6 +15,9 @@ Given a digital object identifier (doi) PMC reference checker will return the pe
 
 pmc-ref requires [Node.js](https://nodejs.org/download/) 0.10+ and  [MongoDB](http://www.mongodb.org/downloads) 2.4.9 or above.
 
+Using the latest version of Node, at writing is 0.12, a warning message `Failed to load c++ bson extension, using pure JS version`
+occurs when starting the application. This may have an affect on *nix machines as well as Windows when connecting to MongoDB <= 2.6.6.
+
 
 
 ##Loading test data into MongoDB##

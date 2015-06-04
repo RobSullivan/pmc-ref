@@ -3,9 +3,9 @@ var app = require("../../app"),
 
 var server = app({
 	mongoose: {
-		host: env.MONGOOSE_HOST,
-		port: env.MONGOOSE_PORT,
-		db: env.MONGOOSE_DB
+		host: 'mongodb://localhost/',
+		port: 1337,
+		db: 'test'
 	}
 })
 
