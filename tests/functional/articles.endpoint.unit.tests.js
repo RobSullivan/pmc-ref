@@ -1,7 +1,7 @@
 var request = require("supertest"),
-	express = require("express");
 	app = require("../../app"),
-	main = require("../utils/main");
+	mongoose = require("mongoose");
+	//main = require("../utils/main");
 
 
 //from Mastering Web Application Development with Express
@@ -25,6 +25,8 @@ describe("GET /", function(){
 		done();
 
 	});
+
+
 
 	it("response is successful", function(done){
 		request(app)
