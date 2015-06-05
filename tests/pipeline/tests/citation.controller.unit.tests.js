@@ -6,7 +6,8 @@ var assert = require("chai").assert,
 
 
 var CitationController = require("../../../controllers/CitationController"),
-	ArticleModel = require("../../../models/ArticleModel");
+	ArticleModel = require("../../../models/ArticleModel"),
+	ignorePmid = [24563719];
 
 suite("CitationController", function(){
 
@@ -106,14 +107,14 @@ suite("CitationController", function(){
 				});
 		});
 
-		test("is not called if citations in response do not exist", function(done){
-			var pmidNoCitations = 24901476;
+		test.only("is not called if citations in response do not exist", function(done){
+			
 			async.waterfall([function(callback){
-				
-				citationController.getPmid(callback);
-
-			}, function(dbPmid, callback){
-				
+				/** dbPmid is a mock object and works as long as 
+				*   no one ever cites this article.
+				* 	How's that for a dependency?
+				*/
+				dbPmid = {"pmid": 24277739};
 				citationController.fetchCitations(dbPmid["pmid"], callback);
 
 			}, function(response, callback){
