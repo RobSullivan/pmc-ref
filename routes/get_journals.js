@@ -13,8 +13,10 @@ module.exports = function(request, response, mongoose){
 				.select("-_id -__v")
 				.exec(function(err, journal){
 					if(err){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: err.message});
 					}else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {journal: journal} );
 					}
 				});

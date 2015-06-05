@@ -16,26 +16,16 @@ module.exports = function(request, response, mongoose){
 		citations = request.query.citations
 		errors = [];
 
-	//do some checking on doi format?
-	//do some checking on references. For example can pass false and it will give all refs.
-	//can make parameters optional. :free? default is to show all.
-
 	
-
-	// response.json(200, {doi: doi,
-	// 					free: free,
-	// 					errors: errors,
-	// 					percentage: percentage});
-	
-	//choose query to run based on condtions of params and query...bleugh.
 	//need to populate journal path with journal title.
 	if(doi && references && count==="percent"){//this condition at the top because checking doi and refs will be matched before it ever gets to count.
-		//need to refactor this asap.
-		//get ObjectId from doi
+		
+		
 		ArticleModel.find({doi:doi}, "references" ,function(err, result){
 			if(err) console.log(err);
 			if(result[0] === undefined){
 				response.json(200,{result:"doi not found"})
+				//should add logging to find what dois people are submitting.
 
 			}else{
 				var totalRefCount = result[0].references.length;
@@ -43,12 +33,13 @@ module.exports = function(request, response, mongoose){
 			//count free articles that are refs of ObjectId(doi)
 				ArticleModel.count({$and:[{is_ref_of: ObjectId(result[0]._id.toString())}, {free_access:true}]}, function(error, data){
 				if(error) {
+					response.set('Access-Control-Allow-Origin', '*')
 					response.json(500, {error:error.message});
 				}else{
 					var freeRefCount = data;
 
 					var percentage = Math.round((freeRefCount / totalRefCount) * 100);
-
+					response.set('Access-Control-Allow-Origin', '*')
 					response.json(200,{doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
 				}
 
@@ -69,8 +60,10 @@ module.exports = function(request, response, mongoose){
 				.select("-_id -is_ref_of -__v")
 				.exec(function(error, article){
 					if(error){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: error.message});
 					} else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {article: article});
 					}
 				});
@@ -84,8 +77,10 @@ module.exports = function(request, response, mongoose){
 				.select("-_id -references -__v")
 				.exec(function(error, article){
 					if(error){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: error.message});
 					} else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {article: article});
 					}
 				});
@@ -96,8 +91,10 @@ module.exports = function(request, response, mongoose){
 					.select("-_id -is_ref_of -__v")
 					.exec(function(error, article){
 					if(error){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: error.message});
 					} else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {article: article});
 					}
 				});

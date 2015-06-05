@@ -34,6 +34,7 @@ module.exports = function(request, response, mongoose){
 		ArticleModel.find({doi:doi}, "references" ,function(err, result){
 			if(err) console.log(err);
 			if(result[0] === undefined){
+				response.set('Access-Control-Allow-Origin', '*')
 				response.json(200,{result:"doi not found"})
 
 			}else{
@@ -42,12 +43,14 @@ module.exports = function(request, response, mongoose){
 			//count free articles that are refs of ObjectId(doi)
 				ArticleModel.count({$and:[{is_ref_of: ObjectId(result[0]._id.toString())}, {free_access:true}]}, function(error, data){
 				if(error) {
+					response.set('Access-Control-Allow-Origin', '*')
 					response.json(500, {error:error.message});
 				}else{
 					var freeRefCount = data;
 
 					var percentage = Math.round((freeRefCount / totalRefCount) * 100);
-
+					
+					response.set('Access-Control-Allow-Origin', '*')
 					response.json(200,{doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
 				}
 

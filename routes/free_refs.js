@@ -19,8 +19,10 @@ module.exports = function(request, response, mongoose){
 				.select("-_id -is_ref_of -__v")
 				.exec(function(error, article){
 					if(error){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: error.message});
 					} else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {article: article});
 					}
 				});

@@ -24,8 +24,10 @@ module.exports = function(request, response, mongoose){
 				.populate("references")
 				.exec(function(error, refs){
 					if(error){
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(500, {error: error.message});
 					} else{
+						response.set('Access-Control-Allow-Origin', '*')
 						response.json(200, {refs: refs});
 					}
 				});
