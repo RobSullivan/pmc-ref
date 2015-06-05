@@ -107,7 +107,7 @@ suite("CitationController", function(){
 				});
 		});
 
-		test.only("is not called if citations in response do not exist", function(done){
+		test("is not called if citations in response do not exist", function(done){
 			
 			async.waterfall([function(callback){
 				/** dbPmid is a mock object and works as long as 
@@ -139,7 +139,7 @@ suite("CitationController", function(){
 
 
 
-		test("extracts pmids from pubmed_pubmed_citedin section to an array", function(done){
+		test.only("extracts pmids from pubmed_pubmed_citedin section to an array", function(done){
 				
 
 				async.waterfall([
