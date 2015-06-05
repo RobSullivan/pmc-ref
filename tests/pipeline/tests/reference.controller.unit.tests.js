@@ -62,7 +62,7 @@ suite("ReferencesController", function(){
 
 	});
 
-	suite.only("#fetchReferences", function(){
+	suite("#fetchReferences", function(){
 		test("makes request to eutils.elink", function(done){
 			referencesController.fetchReferences(pmid, function(err, response){
 				
@@ -191,195 +191,12 @@ suite("ReferencesController", function(){
 		
 	});
 
-	suite("#existingPmids", function(){
-		test("do these pmids already exist in database?", function(done){
+	
 
-			async.waterfall([
-				function(callback){
-
-					referencesController.getPmid(callback);//also testing getPmid in waterfall here, teehee.
-
-				},
-				function(dbPmid, callback){
-					
-					referencesController.fetchReferences(dbPmid["pmid"], callback);
-
-				}, 
-				function(response, callback){
-					
-					var data = response.body;
-					referencesController.referencesExist(data, callback);
-
-				}, function(exist, refPmids, callback){
-					
-					if(exist === false){
-						callback(err, exist);
-					}else{
-						referencesController.parseResponse(refPmids, callback);
-					
-					}
-				}, function(pmidArray, callback){
-					
-
-					referencesController.existingPmids(pmidArray, callback);
-
-				}], function(err, result){
-					
-					assert.isArray(result, "what has gone wrong?");
-					done();	
-
-				});
-			
-					
-
-				
-			
-		});
-	});
-
-	suite("#sortPmids", function(){
-		test("distinguish between existing pmids and new pmids", function(done){
-
-				async.waterfall([
-
-					function(callback){
-
-					referencesController.getPmid(callback);
-
-				}, function(dbPmid, callback){
-
-					referencesController.fetchReferences(dbPmid["pmid"], callback);
-
-				}, function(response, callback){
-					var data = response.body;
-
-					referencesController.referencesExist(data, callback);
-				}, function(exist, refPmids, callback){
-					if(exist === false){
-						callback(null, exist);
-					}else{
-						referencesController.parseResponse(refPmids, callback);
-					}
-				}, function(pmidArray, callback){
-
-					referencesController.sortPmids(pmidArray, callback);
-
-				}, function(pmidsExist, newPmids){
-					
-					assert.notInclude(newPmids, pmidsExist, "newPmids contains some existing pmids");
-					done();
-
-				}]);
-
-
-		});
-
-	});
-
-
-	suite.skip("#addPmidsToDb", function(){
-		test("add new pmids to db with seedObjectId in is_ref_of field", function(done){
-				
-				var seedObjectId;
-
-				teardown(function(){
-					ArticleModel.remove({pmid:{$in: newPmids}}, function(err, result){
-						if(err){
-							console.log(err);
-						}else{
-							console.log("newPmids removed status: "+result);
-						}
-					});
-				});//remove newly inserted pmids after
-
-				async.waterfall([
-					function(callback){
-						referencesController.getPmid(callback);
-					},
-					function(dbPmid, callback){
-						seedObjectId = dbPmid["_id"];
-						referencesController.fetchReferences(dbPmid["pmid"], callback);
-					},
-					function(response, callback){
-						var data = response.body;
-						referencesController.referencesExist(data, callback);
-					},
-					function(exist, refPmids, callback){
-						if(exist === false){//conditions should be kept out of tests but ho hum
-							callback(null, exist);
-						}else{
-							referencesController.parseResponse(refPmids, callback);
-						}
-					}, function(pmidArray, callback){
-
-						referencesController.sortPmids(pmidArray, callback);
-
-					}, function(existingPmids, newPmids, callback){
-
-
-						this.newPmids = newPmids;//to remove after adding.
-						referencesController.addPmidsToDb(newPmids, seedObjectId, callback);
-					}], function(err, result){
-						console.log("new pmid: "+result);
-						var expectedVal = [seedObjectId];
-					assert.propertyVal(result, "__v", 0, "error adding new pmids.");
-					done();
-				});
-
-			
-		});
+	
+	
 
 
 
-
-	});
-
-	suite("#updateExistingPmids", function(){
-
-		test("", function(done){
-		var seedObjectId;
-
-		teardown(function(){
-			//remove seedObjectId from is_ref_of field in existing pmids.
-			ArticleModel.update({$pull:{is_ref_of: seedObjectId}, multi:true}, function(err, result){
-				if(err){
-					console.log(err);
-				}else{
-					console.log(err);
-				}
-			});
-		});
-
-
-		async.waterfall([function(callback){
-
-			referencesController.getPmid(callback);
-
-		}, function(dbPmid, callback){
-			seedObjectId = dbPmid["_id"];
-			referencesController.fetchReferences(dbPmid["pmid"], callback);
-
-		}, function(response, callback){
-			
-			var data = response.body;
-			referencesController.referencesExist(data, callback);
-		}, function(exist, refPmids, callback){
-			if(exist === false){
-				callback(null, exist);
-			}else{
-				referencesController.parseResponse(refPmids, callback);
-			}
-		}, function(pmidArray, callback){
-			referencesController.sortPmids(pmidArray, callback);
-
-		}, function(existingPmids, newPmids, callback){
-			referencesController.updateExistingPmids(existingPmids, seedObjectId, callback);
-		}], function(err, result){
-			assert.notProperty(result, "writeConcernError", "error updating existing pmids");
-			done();
-		});
-
-	});
-});
-
+	
 });
