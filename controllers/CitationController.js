@@ -30,7 +30,7 @@ CitationController.prototype.getPmid = function(ignorePmid, callback){// get cit
 	//$nin: [24563719, 24672386, 25029550, 0] 
 	
 	ArticleModel.findOne({title:{$exists: true}, citation_count:{$exists:false}, year:{$lt:2013}, pmid:{$nin: ignorePmid}}, "pmid", function(err, results){
-		if(err){
+		if(err){		
 			callback(null, err);
 		}else{
 		

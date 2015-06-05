@@ -33,10 +33,17 @@ suite("CitationController", function(){
 
 	suite("#getPmid", function(){
 		test("gets an object containing a pmid property", function(done){
+
+			/* if there is a pmid to get that is. Check the conditions set
+			*  in the getPmid query.
+			*
+			*  [24563719] is a pmid to ingore
+			*
+			*/
 			
-			citationController.getPmid(function(err, value){
+			citationController.getPmid([24563719], function(err, value){
 				var expectedNumber = value;
-				assert.isNumber(expectedNumber["pmid"]);
+				assert.isNumber(expectedNumber.pmid);
 				assert.isNull(err);
 				done();
 			})
