@@ -221,7 +221,7 @@ suite("CitationController", function(){
 					if(err){
 						callback(err);
 					}else{
-						console.log(pmids)
+						
 						callback(pmids);
 					}
 				});
@@ -236,17 +236,15 @@ suite("CitationController", function(){
 				citationController.upsertDocs(pmids, existingPmidObjectId, function(err, results){
 					console.log(results)
 					assert.ok(results);
-					done();
+					
 
 				});
+				done()
 			});
 			
 		});
 
-		test.skip("it also updates existing pmids", function(done){
-
-		});
-
+		
 	});
 
 });
