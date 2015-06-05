@@ -87,16 +87,7 @@ DocumentController.prototype.getPmid = function(callback){
 
 	console.log("hitting getPmid")
 
-		//var activePmidArray = [];//everytime getPmid is called this array goes down one
-		//when array is empty, more pmids are sought from getQueue -> initQueue
-		//
-
-		// this.getQueue(function(nullObj, pmids){
-		// 	console.log("remaining pmids to gather data for: "+ pmids.length)
-		// 	var num = pmids.pop();
-
-		// 	callback(null, num);
-		// });
+		
 };
 
 DocumentController.prototype.fetchArticleData = function(pmid, callback){
@@ -203,6 +194,7 @@ DocumentController.prototype.toHash = function(data, callback){
 
 	//now to add journal title
 	var journalTitle = medlineCitation.valueWithPath("Article.Journal.ISOAbbreviation")
+	console.log(journalTitle)
 
 	
 	//checkJournalTitle
@@ -276,7 +268,7 @@ DocumentController.prototype.validate = function(doc, callback){
 	//not mongoose validate because that appears to be done in findOneAndUpdate op.
 	//just want to check each required value is defined.
 	//if not it needs to be removed from doc.
-	//also set boolean value if pmcid exists.
+	
 	var vDoc;
 
 	for(var i in doc){
@@ -290,7 +282,7 @@ DocumentController.prototype.validate = function(doc, callback){
 		}
 		
 	};
-	console.log(doc)
+	
 	callback(doc)
 
 	

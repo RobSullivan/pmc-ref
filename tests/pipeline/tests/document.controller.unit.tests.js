@@ -38,17 +38,22 @@ suite("DocumentController", function(){
 		});
 	});
 
-	test.skip("return journal title from XML response", function(done){
+	test.only("return journal title from XML response", function(done){
 
 		var articleJournal;
+		console.log(pmid)
 		
 		documentController.fetchArticleData(pmid, function(nullObj, data){
 
 			this.xml = data;
-			articleJournal = documentController.toHash(this.xml);
-
-			assert.equal(articleJournal["title"], "Biomed Res Int");
+			
+			documentController.toHash(this.xml, function(articleJournal){
+			assert.equal(articleJournal["journal"], "53f8a9de982e72481b718d57");//ObjectId for Biomed Res Int oh yeah
 			done();
+
+			});
+
+			
 
 		});
 
@@ -77,34 +82,9 @@ suite("DocumentController", function(){
 
 
 
-		test("gets array of pmids to work on", function(done){
-
-		var queue;
-
-		documentController.initQueue(function(obj, data){
-			
-			queue = data;
-			var pmidObject = {pmid: 23268745, _id: "53c2954da98ffe281c512302"}
-			
-			assert.isArray(queue, "queue is not array");
-			
-			
-			done();
-
-
-		});
 		
-	});
 
-		test("array of pmids is intialised with new instance of documentController", function(done){
-			//queue should therefore be a property of instance
-
-			var documentController2 = new DocumentController();
-			//console.log(documentController2);
-			assert.isArray(documentController2.pmidQueue, "documentController does not have array property");
-			assert.lengthOf(documentController2.pmidQueue, 500, "length is ++'s")
-			done();
-		});
+		
 
 		test("maintain a queue of pmids to work from", function(done){
 			var pmidQueue;
@@ -201,13 +181,13 @@ suite("#createDocument", function(){
 
 	});
 
-	test.skip("validate newDoc against schema before adding it to db", function(done){
+	test("check new document for undefined properties before adding it to db", function(done){
 		var expectedDoc = {};
 
 		documentController.createDocument(function(newDoc){
 			expectedDoc = newDoc;
 			documentController.validate(expectedDoc, function(result){
-				assert.notProperty(result, "abstract");//of course doesn't work when abstract IS defined.
+				assert.notProperty(result, "undefined");//of course doesn't work when abstract IS defined.
 				done();
 			})
 		})
