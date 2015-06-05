@@ -6,7 +6,7 @@ var assert = require('chai').assert,
 describe('mongoose', function() {
     it('gets a pending connection to articles database. Implies mongodb is running.', function(next) {
         var mongoose = require('mongoose');
-        mongoose.connect('mongodb://127.0.0.1:27017/articles', function(err){
+        mongoose.connect('mongodb://127.0.0.1:27017/test', function(err){
         	
 			assert.isUndefined(err, 'error occured when connecting');
 			next();
