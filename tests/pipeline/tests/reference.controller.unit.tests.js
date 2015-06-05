@@ -30,10 +30,10 @@ suite("ReferencesController", function(){
 
 
 
-	suite("#getPmid", function(){
+	suite.only("#getPmid", function(){
 
 		test("accepts an err object and a callback as a parameter in order to work with async.waterfall", function(done){
-			referencesController.getPmid(function(value){
+			referencesController.getPmid([0], function(value){
 				assert.isDefined(value, "value has been defined");
 				done();
 			});
@@ -43,7 +43,7 @@ suite("ReferencesController", function(){
 
 		test("gets an object that has pmid property", function(done){
 			
-			referencesController.getPmid(function(err, value){				
+			referencesController.getPmid([0], function(err, value){				
 				assert.property(value, "pmid", "needs a pmid");
 				done();
 			});
@@ -51,7 +51,7 @@ suite("ReferencesController", function(){
 		});	
 
 		test("gets an object that has an _id property", function(done){
-			referencesController.getPmid(function(err, value){
+			referencesController.getPmid([0], function(err, value){
 				assert.property(value, "_id", "result value needs an _id");
 				done();
 			});
