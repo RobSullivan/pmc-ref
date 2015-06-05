@@ -116,11 +116,14 @@ suite("DocumentController", function(){
 		suite("#getQueue", function(){
 
 			test("creates an array of just pmids from the intialised queue", function(done){
-					
+					/**
+						
+
+					*/
 					documentController.getQueue(function(obj, pmidArray){
-						console.log(pmidArray.length)
+						
 							assert.isArray(pmidArray, "pmidArray is not array");
-							assert.include(pmidArray, 23268745, "expected pmid is not in pmidArray");
+							assert.isNumber(pmidArray[0], "expected a pmid in pmidArray");
 							done();	
 					});
 					

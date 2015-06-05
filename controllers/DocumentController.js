@@ -42,7 +42,7 @@ DocumentController.prototype.initQueue = function(callback){
 	console.log("hitting initQue")
 		//queue consists of docs that do not have title fields.
 		//ignore pmid = 0 because it means no data in pubmed.
-		ArticleModel.find({year: {$exists: false}}, "pmid", function(err, arrayResult){
+		ArticleModel.findOne({year: {$exists: false}}, "pmid", function(err, arrayResult){
 				if(err){
 					callback(err);
 				}else{
@@ -63,11 +63,12 @@ DocumentController.prototype.getQueue = function(callback) {
 	var pmidArray = [];
 
 	this.initQueue(function(nullObj, pmidObjectArray){//I don't like this nullObj business being passed.
-
-		for(var i = 0, l = pmidObjectArray.length; i < l; i++){
-				var pmidObj = pmidObjectArray.pop()
-				pmidArray.push(pmidObj["pmid"]);
-		}
+		
+		pmidArray.push(pmidObjectArray["pmid"])
+		// for(var i = 0, l = pmidObjectArray.length; i < l; i++){
+		// 		var pmidObj = pmidObjectArray.pop()
+		// 		pmidArray.push(pmidObj["pmid"]);
+		// }
 		callback(null, pmidArray);
 	});
 	
