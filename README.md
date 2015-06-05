@@ -80,19 +80,7 @@ For Windows users:
 
 ###Running tests###
 
-Some attempt at TDD was made with this project and it was very much a learn-as-you-go approach.
-
-Subsequently there is no way to run all the tests with a single command.
-
-Some tests are being skipped and some are failing, possibly due to defunct methods.
-
-Run tests with caution and consideration...I've opened an [issue](https://github.com/RobSullivan/pmc-ref/issues/7).
-
-If you would like to see what happens though a good place to start is 
-
-tests\pipeline\tests with the command 
-
-`mocha --ui tdd -R list document.controller.unit.tests.js`
+`npm test`
 
 ###Using the pipeline to collect more data###
 
