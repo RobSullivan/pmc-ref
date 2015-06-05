@@ -153,7 +153,7 @@ suite("#createDocument", function(){
 	// 	});
 	// 	});
 
-	test.only("method creates document for entry to database", function(done){
+	test("method creates document for entry to database", function(done){
 
 		var expectedDoc = {};
 
