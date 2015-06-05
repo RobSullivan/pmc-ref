@@ -30,7 +30,7 @@ suite("ReferencesController", function(){
 
 
 
-	suite.only("#getPmid", function(){
+	suite("#getPmid", function(){
 
 		test("accepts an err object and a callback as a parameter in order to work with async.waterfall", function(done){
 			referencesController.getPmid([0], function(value){
@@ -62,7 +62,7 @@ suite("ReferencesController", function(){
 
 	});
 
-	suite("#fetchReferences", function(){
+	suite.only("#fetchReferences", function(){
 		test("makes request to eutils.elink", function(done){
 			referencesController.fetchReferences(pmid, function(err, response){
 				
