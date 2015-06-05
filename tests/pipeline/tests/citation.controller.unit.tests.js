@@ -139,7 +139,7 @@ suite("CitationController", function(){
 
 
 
-		test.only("extracts pmids from pubmed_pubmed_citedin section to an array", function(done){
+		test("extracts pmids from pubmed_pubmed_citedin section to an array", function(done){
 				
 
 				async.waterfall([
@@ -167,59 +167,7 @@ suite("CitationController", function(){
 		
 	});
 
-	suite("#checkPmids", function(){
-
-		var steps;
-
-		setup(function(){//here I set up a function to to save repeating myself in the tests.
-			steps = function(callback){
-
-				async.waterfall([
-				function(callback){
-						citationController.fetchCitations(pmid, callback);
-				}, function(response, callback){
-					var data = response.body;
-					citationController.citationsExist(data, callback);
-				}, function(exist, citationLinkSet, callback){
-					if(exist ===false){
-						callback(true);
-					}else{
-						citationController.parseResponse(citationLinkSet, callback);
-					}
-				}], function(err, results){
-					if(err){
-						callback(err);
-					}else{
-						callback(results);
-					}
-				});
-		}
-
-		});
-
-		test("do these pmids already exist in database?", function(done){
-			
-			steps(function(pmidArray){
-				
-				var pmids = pmidArray;
-				citationController.existingPmids(pmids, function(err, result){
-					
-					assert.ok(result, "something wrong");
-					done();
-				});
-			});
-				
-				
-					
-				
-				
-
-				
-					
-								
-			
-		});
-	});
+	
 
 
 	suite("#sortPmids", function(){
