@@ -94,6 +94,12 @@ require("newrelic"); has been removed from line 1 of app.js to avoid having to i
 
 Read more about how things work over on the [wiki](https://github.com/RobSullivan/pmc-ref/wiki)
 
+###Contributing###
+
+If you'd like to contribute to this project please read more on the [CONTRIBUTING.md]
+
+###Roadmap###
+
 
 
 
