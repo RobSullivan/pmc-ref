@@ -11,15 +11,13 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 
 ### Table of contents
 
-- [How you can help](####How-you-can-help)
+- [How you can help](#how-you-can-help)
 - Getting the code and getting the application working on your machine. 
 - Tests - running and writing tests
 - Issues and bugs
 - Pull requests
 - The wiki (bits and pieces of how the code works)
 - Other resources to help
-
-I am linking to [Foo](#foo)
 
  #### How you can help
  
