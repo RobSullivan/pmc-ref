@@ -11,15 +11,15 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 
 ### Table of contents
 
-- [How you can help](#How-you-can-help)
-- Getting the code and getting the application working on your machine. 
-- Tests - running and writing tests
-- Issues and bugs
-- Pull requests
-- The wiki (bits and pieces of how the code works)
-- Other resources to help
+- [How you can help](#how-you-can-help)
+- [Getting started](#getting-started) 
+- [Tests](#tests)
+- [Issues and bugs](#issues-and-bugs)
+- [Pull requests](#pull-requests)
+- [The wiki](#the-wiki) (bits and pieces of how the code works)
+- [Other resources](#other-resources)
 
- #### How you can help
+ ### How you can help
  
 There's a lot I need help with, not just coding. So if you have enthusiasm, experience or aspirations for any of the following, please jump in:
 
@@ -33,9 +33,13 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
  -  Improve test coverage
 
 
- ### Getting the code and getting the application working on your machine
+ ### Getting Started
+ 
+Here are the instructions for getting the code and getting the application working on your machine (coming soon).
 
- ### Tests - running and writing tests
+ ### Tests
+ 
+Here's where you can find out more information on running and writing tests (coming soon).
 
  ### Issues and bugs
 
@@ -43,5 +47,11 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
 
  ### Pull requests
  
+ 
+ ### The wiki
+ 
+ Link coming soon.
+ 
+ ### Other resources
 
 
