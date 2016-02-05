@@ -11,7 +11,7 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 
 ### Table of contents
 
-- [How you can help](#how-you-can-help)
+- [How you can help](#How-you-can-help)
 - Getting the code and getting the application working on your machine. 
 - Tests - running and writing tests
 - Issues and bugs
@@ -43,8 +43,5 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
 
  ### Pull requests
  
-
-# Foo
-
 
 
