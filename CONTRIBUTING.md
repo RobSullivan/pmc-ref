@@ -19,6 +19,7 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 - The wiki (bits and pieces of how the code works)
 - Other resources to help
 
+I am linking to [Foo](#foo)
 
  #### How you can help
  
@@ -45,7 +46,7 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
  ### Pull requests
  
 
-
+# Foo
 
 
 
