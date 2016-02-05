@@ -15,7 +15,7 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 - Getting the code and getting the application working on your machine. 
 - Tests - running and writing tests
 - Issues and bugs
-- Pull requests (for me to learn more about)
+- Pull requests
 - The wiki (bits and pieces of how the code works)
 - Other resources to help
 
@@ -32,6 +32,20 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
  -  Make suggestions to improve code (code review)
  -  Or even go ahead and refactor the code!
  -  Improve test coverage
+
+
+ ### Getting the code and getting the application working on your machine
+
+ ### Tests - running and writing tests
+
+ ### Issues and bugs
+
+ There are lots of issues and bugs!
+
+ ### Pull requests
+ 
+
+
 
 
 
