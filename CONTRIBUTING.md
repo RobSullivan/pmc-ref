@@ -19,7 +19,7 @@ Issues can be reported to me at robertjsullivan.esq@gmail.com.
 - [The wiki](#the-wiki) (bits and pieces of how the code works)
 - [Other resources](#other-resources)
 
- ### How you can help
+### How you can help
  
 There's a lot I need help with, not just coding. So if you have enthusiasm, experience or aspirations for any of the following, please jump in:
 
@@ -33,25 +33,26 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
  -  Improve test coverage
 
 
- ### Getting Started
+### Getting Started
  
 Here are the instructions for getting the code and getting the application working on your machine (coming soon).
 
- ### Tests
+### Tests
  
 Here's where you can find out more information on running and writing tests (coming soon).
 
- ### Issues and bugs
+### Issues and bugs
 
  There are lots of issues and bugs!
 
- ### Pull requests
+### Pull requests
  
  
- ### The wiki
+### The wiki
  
  Link coming soon.
+
  
- ### Other resources
+### Other resources
 
 
