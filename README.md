@@ -41,7 +41,7 @@ Start an instance of mongo with the `mongo` command and check there is some data
 `db.journalmodels.find({"title":"Nature"})`
 
 ####Create indexes
-A few indexes are needed.
+A few indexes are needed. (Are they?)
 
 I've found adding indexes to pmid, references and is_ref_of fields help.
 
@@ -76,6 +76,14 @@ For Windows users:
 
 - open browser at [http://localhost:1337/](http://localhost:1337/)
 
+For Mac:
+
+MONGOOSE_HOST=mongodb://localhost/ MONGOOSE_DB=pmcref SERVER_PORT=1337 node main.js
+
+move further up
+Used brew install mongodb
+
+and then https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b to get mongod process
 
 
 ###Running tests###
