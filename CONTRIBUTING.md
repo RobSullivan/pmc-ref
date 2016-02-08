@@ -4,7 +4,7 @@ Hello and thank you for taking the time to be here. I'm very happy that you'd li
 
 Here are a set of guidelines that outline how you can contribute.
 
-This project adheres to the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/3/0/), please read this first. Ta.
+This project has a code of conduct which can be read at https://github.com/RobSullivan/pmc-ref/CODE_OF_CONDUCT.md.
 
 Issues can be reported to me at robertjsullivan.esq@gmail.com.
 
@@ -27,10 +27,11 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
  -  Accessibility (see https://pages.18f.gov/accessibility/)
  -  Suggesting features
  -  Advocacy (if you just think this is just the absolute best thing ever made, tell ur friends!)
- -  Improve knowledge base
+ -  Improve knowledge base (documentation)
  -  Make suggestions to improve code (code review)
  -  Or even go ahead and refactor the code!
  -  Improve test coverage
+ -  Code review - tell me where I can improve!
 
 
 ### Getting Started
