@@ -29,7 +29,7 @@
     "webdriverjs": "1.7.5",
     "supertest": "1.1.0",
     "mongodb": "2.1.7",
-    "mongoose": "4.4.2",
+    "mongoose": "4.4.3",
     "request": "2.69.0",
     "JSONStream": "1.0.7",
     "event-stream": "3.3.2",
