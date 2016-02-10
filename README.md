@@ -78,13 +78,14 @@ For Windows users:
 
 For Mac:
 
-MONGOOSE_HOST=mongodb://localhost/ MONGOOSE_DB=pmcref SERVER_PORT=1337 node main.js
+`MONGOOSE_HOST=mongodb://localhost/pmc SERVER_PORT=1337 node main.js`
 
-move further up
-Used brew install mongodb
 
-and then https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b to get mongod process
+###Some install issues
 
+ - Used homebrew install mongodb and then https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b to get mongod process
+
+- kerberos and node-gyp errors (oh boy)
 
 ###Running tests###
 

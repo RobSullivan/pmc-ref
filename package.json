@@ -21,23 +21,24 @@
     "test-docs": "mocha --ui tdd -R list tests/pipeline/tests/document.controller.unit.tests.js"
   },
   "dependencies": {
+    "JSONStream": "1.0.7",
+    "async": "1.5.2",
+    "body-parser": "^1.14.2",
+    "chai": "*",
+    "event-stream": "3.3.2",
     "express": "4.13.4",
     "hjs": "*",
+    "jade": "~1.11.0",
     "less-middleware": "*",
     "mocha": "*",
-    "chai": "*",
-    "webdriverjs": "1.7.5",
-    "supertest": "1.1.0",
     "mongodb": "2.1.7",
     "mongoose": "4.4.2",
-    "request": "2.69.0",
-    "JSONStream": "1.0.7",
-    "event-stream": "3.3.2",
-    "split": "1.0.0",
-    "async": "1.5.2",
-    "xmldoc": "0.4.0",
-    "jade": "~1.11.0",
     "newrelic": "~1.25.1",
-    "underscore": "*"
+    "request": "2.69.0",
+    "split": "1.0.0",
+    "supertest": "1.1.0",
+    "underscore": "*",
+    "webdriverjs": "1.7.5",
+    "xmldoc": "0.4.0"
   }
 }

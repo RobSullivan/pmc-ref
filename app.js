@@ -3,6 +3,7 @@
 var express = require("express"),
 	http = require("http"),
 	path = require("path"),
+	bodyParser = require("body-parser"),
 	MongoClient = require("mongodb").MongoClient,
 	mongoose = require("mongoose");
 
@@ -20,10 +21,11 @@ var getReferences = require("./routes/get_references"),
 module.exports = function(config){
 
 
-	
+	//console.log(config.mongoose.host, config.mongoose.port, config.mongoose.db)
 	mongoose.connect(config.mongoose.host, config.mongoose.port, config.mongoose.db);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
 	
 	var db = mongoose.connection;
+
 	//db.open()
 	db.on("error", console.error.bind(console, "connection error"));
 	db.once("open", function callback(){
@@ -40,7 +42,7 @@ module.exports = function(config){
 	app.set("views", path.resolve(process.cwd(), "views"));
 	app.set("view engine", "jade");
 
-	app.use(express.urlencoded());
+	app.use(bodyParser.urlencoded());
 	app.use(express.static(path.resolve(process.cwd(), "public")))
 
 
@@ -76,6 +78,7 @@ module.exports = function(config){
 
 	//currently not doing anything?
 	app.get("/v1/articles/:doi/references/:param?", function(request, response){
+		console.log(db)
 		getReferences(request, response, db);
 	});
 

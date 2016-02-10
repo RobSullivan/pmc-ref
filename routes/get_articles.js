@@ -95,7 +95,7 @@ module.exports = function(request, response, mongoose){
 						response.json(500, {error: error.message});
 					} else{
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(200, {article: article});
+						response.status(200).json({article: article});
 					}
 				});
 	}  //how to contend with a doi but the wrong query?
