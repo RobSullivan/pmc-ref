@@ -78,7 +78,7 @@ For Windows users:
 
 For Mac:
 
-`MONGOOSE_HOST=mongodb://localhost/pmc SERVER_PORT=1337 node main.js`
+`MONGOOSE_HOST=mongodb://localhost/pmcref SERVER_PORT=1337 node main.js`
 
 
 ###Some install issues
