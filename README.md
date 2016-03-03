@@ -16,4 +16,4 @@ https://github.com/RobSullivan/pmc-ref/issues/30
 
 ### Contributing ###
 
-If you'd like to contribute to this project please read more on the (CONTRIBUTING.md)[https://github.com/RobSullivan/pmc-ref/edit/master/CONTRIBUTING.md]
+If you'd like to contribute to this project please read more on the [CONTRIBUTING.md](https://github.com/RobSullivan/pmc-ref/edit/master/CONTRIBUTING.md)
