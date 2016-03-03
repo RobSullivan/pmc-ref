@@ -8,7 +8,7 @@ Given a digital object identifier (doi) pmc-ref will return the percentage of an
 
 ### Who is this for? ###
 
-* For researchers who would like freely accessible research.
+For researchers who would like freely accessible research.
 
 ### Roadmap ###
 
