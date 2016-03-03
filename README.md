@@ -1,5 +1,7 @@
 ## pmc-ref ##
 
+https://pmc-ref.herokuapp.com/
+
 A quick way to check if an article's references are free to access in PubMed Central.
 
 Given a digital object identifier (doi) pmc-ref will return the percentage of an article's references that are free to access in [PubMed Central](http://www.ncbi.nlm.nih.gov/pmc/). It can also return the details of the references that are free to acess. There's also an API https://pmc-ref.herokuapp.com/api.
