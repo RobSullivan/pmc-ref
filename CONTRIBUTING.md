@@ -41,7 +41,7 @@ Here are the instructions for getting the code and getting the application worki
 
 ####Set up####
 
-pmc-ref requires [Node.js](https://nodejs.org/download/) and [MongoDB](http://www.mongodb.org/downloads). Latest versions of both are being used (they are Node X and Mongo 3.2)
+pmc-ref requires [Node.js](https://nodejs.org/download/) and [MongoDB](http://www.mongodb.org/downloads). Latest versions of both are being used (they are Node 4 and Mongo 3.2)
 
 
 ####Loading test data into MongoDB####
