@@ -1,4 +1,6 @@
 newrelic.js
 data/
 newrelic.js
-.env
+/*.env
+npm-debug.log
+.DS_Store

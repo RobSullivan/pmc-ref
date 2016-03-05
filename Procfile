@@ -1,1 +1,1 @@
-web: node main.js $MONGOLAB_URI
+web: node main.js $MONGOLAB_URI --max_old_space_size=256
