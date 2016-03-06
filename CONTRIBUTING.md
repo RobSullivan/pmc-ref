@@ -41,47 +41,40 @@ Here are the instructions for getting the code and getting the application worki
 
 ####Set up####
 
-pmc-ref requires [Node.js](https://nodejs.org/download/) and [MongoDB](http://www.mongodb.org/downloads). Latest versions of both are being used (they are Node 4 and Mongo 3.2)
+pmc-ref requires [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and Heroku Toolbelt. Versions used Node 4.2 and Mongo 3.2.
 
 
 ####Loading test data into MongoDB####
 
-Once Node and MongoDB are installed download and unzip data from [here](https://drive.google.com/file/d/0B3AgUDfIExOnNExTdmtjdjgxNk0/view).
+Once Node and MongoDB are installed download and unzip data from [here]().
 
 In a terminal start mongod running with `mongod` and in a new terminal navigate to the unzipped files.
 
 From there run the command 
 
-`mongorestore --collection articlemodels --db pmcref articlemodels.bson`
+`mongorestore -d pmcref unzipped/data/path`
 
-followed by
-
-`mongorestore --collection journalmodels --db pmcref journalmodels.bson`
-
-Start an instance of mongo with the `mongo` command and check there is some data!
+Start an instance of mongo with the `mongo` command and check there is some data.
 
 `db.articlemodels.find({"doi":"10.1038/nature10158"})`
 
 `db.journalmodels.find({"title":"Nature"})`
 
-####Create indexes####
-A few indexes are needed. (Are they?)
-
-I've found adding indexes to pmid, references and is_ref_of fields help.
-
-To add an index to a field use the command `db.articlemodels.createIndex({pmid: 1})
-
-Adding multikey indexes to the references and is_ref_of field does mean the size of the indexes gets quite large.
-
-[Read more about the data on the wiki](https://github.com/RobSullivan/pmc-ref/wiki/Schemas)
 
 ####Up and running####
 
-Once the test data has been loaded, clone this repo locally and run `npm install` to install the dependencies found in package.json.
+Once the test data has been loaded, clone this repo locally and run `npm install` to install the dependencies found in package.json. There are some known issues.
+
+In app.js uncomment line `mongoose.connect(config.mongoose.host);` and comment out line`mongoose.connect(process.env.MONGOLAB_URI);`
+
+If using Heroku:
+
+`heroku local web -f Procfile.test` or create a .env file and add 'MONGOOSE_HOST=mongodb://localhost/pmcref' and just run 'heroku local'. It will default to port 5000.
+
 
 If installing on Windows these instructions might be useful for deciphering install errors https://github.com/TooTallNate/node-gyp#installation
 
-For Windows users:
+And then:
 
 - Start the mongod server: `mongod`
 
@@ -97,13 +90,8 @@ For Windows users:
 
 - open browser at [http://localhost:1337/](http://localhost:1337/)
 
-For Mac:
 
-`MONGOOSE_HOST=mongodb://localhost/pmcref SERVER_PORT=1337 node main.js`
-
-
-
-#### Some known install issues ####
+#### Some known OSX install issues ####
 
  - Used homebrew install mongodb and then https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b to get mongod process
  - kerberos and node-gyp errors (oh boy)
