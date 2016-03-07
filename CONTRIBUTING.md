@@ -36,23 +36,23 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
 
 ### Getting Started
  
-Here are the instructions for getting the code and getting the application working on your machine (coming soon).
+Here are the instructions for getting the code and getting the application working on your machine.
 
 
 ####Set up####
 
-pmc-ref requires [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and Heroku Toolbelt. Versions used Node 4.2 and Mongo 3.2.
+pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and [Heroku] Toolbelt(https://toolbelt.heroku.com/). Versions used are Node 4.2.6 and Mongo 3.2. Heroku Toolbelt is not strictly necessary and without it this app can still be run locally. But this is hosted on Heroku and it just helps a little way to ensure any changes still work with it.
 
 
 ####Loading test data into MongoDB####
 
-Once Node and MongoDB are installed download and unzip data from [here]().
+With Node, MongoDB and Heroku installed download and unzip the current data set data from [here]()(64MB).
 
 In a terminal start mongod running with `mongod` and in a new terminal navigate to the unzipped files.
 
 From there run the command 
 
-`mongorestore -d pmcref unzipped/data/path`
+`mongorestore -d [desired name of database] path/to/unzipped/data/`
 
 Start an instance of mongo with the `mongo` command and check there is some data.
 
@@ -60,21 +60,29 @@ Start an instance of mongo with the `mongo` command and check there is some data
 
 `db.journalmodels.find({"title":"Nature"})`
 
+Log an issue if you need help.
 
 ####Up and running####
 
-Once the test data has been loaded, clone this repo locally and run `npm install` to install the dependencies found in package.json. There are some known issues.
+Once the test data has been loaded, clone or fork this repo and run `npm install` from the root. There are some known issues with node-gyp and Kerberos which are related to Mongo and/or Mongoose but it  "should" be ok.
 
-In app.js uncomment line `mongoose.connect(config.mongoose.host);` and comment out line`mongoose.connect(process.env.MONGOLAB_URI);`
+If installing on Windows these instructions might be useful for deciphering install errors https://github.com/TooTallNate/node-gyp#installation too.
+
+Check the mongod process is still running.
+
+Once you have everything open app.js and uncomment line `mongoose.connect(config.mongoose.host);` and comment out the  line`mongoose.connect(process.env.MONGOLAB_URI);`. Yup. Working on config and environment stuff.
+
+If not using Heroku use the command `MONGOOSE_HOST=mongodb://localhost/[desired name of database] node main.js` to start the Node process.
 
 If using Heroku:
 
-`heroku local web -f Procfile.test` or create a .env file and add 'MONGOOSE_HOST=mongodb://localhost/pmcref' and just run 'heroku local'. It will default to port 5000.
+`heroku local web -f Procfile.test` or create a .env file, add 'MONGOOSE_HOST=mongodb://localhost/[desired na...blah]' and just run `heroku local`. It will default to port 5000.
+
+Open the browser at localhost:5000 and start using the API!
 
 
-If installing on Windows these instructions might be useful for deciphering install errors https://github.com/TooTallNate/node-gyp#installation
 
-And then:
+On Windows:
 
 - Start the mongod server: `mongod`
 
@@ -91,16 +99,11 @@ And then:
 - open browser at [http://localhost:1337/](http://localhost:1337/)
 
 
-#### Some known OSX install issues ####
-
- - Used homebrew install mongodb and then https://gist.github.com/adamgibbons/cc7b263ab3d52924d83b to get mongod process
- - kerberos and node-gyp errors (oh boy)
-
 ### Tests
 
-Here's where you can find out more information on running and writing tests (coming soon).
+Here's where you can find out more information on running and writing tests.
 
-Mocha...api endpoint tests...unit tests
+pmc-ref using the [Mocha](https://mochajs.org/) and a bit of [Chai](http://chaijs.com/) to write and run tests. 
 
 Tests can be run using the command:
 
