@@ -41,7 +41,7 @@ Here are the instructions for getting the code and getting the application worki
 
 ####Set up####
 
-pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and [Heroku] Toolbelt(https://toolbelt.heroku.com/). Versions used are Node 4.2.6 and Mongo 3.2. Heroku Toolbelt is not strictly necessary and without it this app can still be run locally. But this is hosted on Heroku and it just helps a little way to ensure any changes still work with it.
+pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and [Heroku Toolbelt](https://toolbelt.heroku.com/). Versions used are Node 4.2.6 and Mongo 3.2. Heroku Toolbelt is not strictly necessary and without it this app can still be run locally. But this is hosted on Heroku and it just helps a little way to ensure any changes still work with it.
 
 
 ####Loading test data into MongoDB####
