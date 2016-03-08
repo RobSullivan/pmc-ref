@@ -46,7 +46,7 @@ pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongo
 
 ####Loading test data into MongoDB####
 
-With Node, MongoDB and Heroku installed download and unzip the current data set data from [here]()(64MB).
+With Node, MongoDB and Heroku installed download and unzip the current data set data from [here](https://drive.google.com/file/d/0B3AgUDfIExOnY1h6aUlRZkk4UTg/view) (64MB).
 
 In a terminal start mongod running with `mongod` and in a new terminal navigate to the unzipped files.
 
