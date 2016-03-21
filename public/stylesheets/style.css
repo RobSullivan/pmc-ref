@@ -3,53 +3,61 @@ body {
   width: 100%;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #fff;
-  border-top-style: solid;
-  border-bottom-style: solid;
+  /*border-top-style: solid;
+  border-bottom-style: solid;*/
+  background-image: url('/images/molecule.png');
   
 }
 
 h2 {
-	border-top-style: solid;
-	border-bottom-style: solid;
+	/*border-top-style: solid;
+	border-bottom-style: solid;*/
+	border-color: black;
+	width: 40%;
+	/*margin: 2.5%;*/
+	padding: 1%;
+	color: black;
+
+
 	
+}
+
+nav {
+	/*border-top-style: solid;
+	border-bottom-style: solid;*/
+	/*margin: 2.5%;*/
+	width: 40%;
+	padding: 1%;
+	color: black;
+
+	
+	
+}
+
+nav > ul > li {
+	list-style: none;
+	display: inline;
+	
+}
+
+div.forms, article {
+	/*border-top-style: solid;*/
+	/*border-bottom-style: solid;*/
 	margin: 2.5%;
-	padding: 5%;
-	/*color: #F26419;*/
+	padding: 1%;
 	
 }
 
-nav{
-	border-top-style: solid;
-	border-bottom-style: solid;
-	margin: 2.5%;
-	padding: 5%;
-	/*color: #F26419;*/
+a, a:link {
+  color: black;
+  text-decoration: none;
 }
 
-li {
-	list-style:none;
-	display:inline;
-	
+a:hover{
+	text-decoration: underline;
+	color: red;
 }
 
-div.forms{
-	border-top-style:solid;
-	border-bottom-style:solid;
-	margin:2.5%;
-	padding: 5%;
-	/*color: #F26419;*/
-}
-
-a {
-  /*color: #F26419;*/
-  
-  
-  
-}
-
-a:hover, a:focus, a:active{
-	
-}
 
 
 
@@ -71,7 +79,7 @@ label{
   width: 12em; 
   text-align: right; 
   float: left;
-  /*color: #F26419;*/ 
+  color: black;
 
   }
 
@@ -82,10 +90,4 @@ input{
   	font-size: 100%; 
 }
 
-footer{
-	border-top-style:solid;
-	border-bottom-style:solid;
-	margin: 2.5%;
-	padding: 5%;
-	/*color: #F26419;*/
-}
+
