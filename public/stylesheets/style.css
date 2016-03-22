@@ -1,37 +1,57 @@
+* {
+	box-sizing: border-box;/*ALP article on responseve images in practice*/
+}
+
 body {
   
   width: 100%;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.25em  Helvetica, Arial, sans-serif;
   background-color: #fff;
-  /*border-top-style: solid;
-  border-bottom-style: solid;*/
-  background-image: url('/images/molecule.png');
+  background: url(../images/molecule_small.png);
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+
+  
   
 }
 
 h2 {
-	/*border-top-style: solid;
-	border-bottom-style: solid;*/
+	
 	border-color: black;
-	width: 40%;
-	/*margin: 2.5%;*/
+	width: 100%;
 	padding: 1%;
 	color: black;
+	
+	
+	
 
 
 	
 }
 
 nav {
-	/*border-top-style: solid;
-	border-bottom-style: solid;*/
-	/*margin: 2.5%;*/
-	width: 40%;
-	padding: 1%;
-	color: black;
+
+	width: 100%;
+	height: 50%;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	padding: 0;
+	z-index: 10;
+	border-bottom: solid 1px white;
 
 	
 	
+}
+
+nav a{
+	padding: 0 10px;
+	margin: 0 1px;
+	background: #eee;
+}
+
+footer p{
+	font-size: 10px;
 }
 
 nav > ul > li {
@@ -41,8 +61,7 @@ nav > ul > li {
 }
 
 div.forms, article {
-	/*border-top-style: solid;*/
-	/*border-bottom-style: solid;*/
+	
 	margin: 2.5%;
 	padding: 1%;
 	
@@ -54,7 +73,7 @@ a, a:link {
 }
 
 a:hover{
-	text-decoration: underline;
+	text-decoration: none;
 	color: red;
 }
 
@@ -89,5 +108,4 @@ input{
   	
   	font-size: 100%; 
 }
-
 
