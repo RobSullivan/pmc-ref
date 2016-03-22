@@ -1,23 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head><title>PMC reference checker</title>
-<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<!--Force IE to use the latest version of its rendering engine-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<script src="modernizr.js"></script>
+<script>
+console.log("Modernizer is present and version is: ", Modernizr._version);
+</script>
+<!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Squada+One' rel='stylesheet' type='text/css'>-->
 </head>
-<body>
-<h2>PMC reference checker</h2>
-<nav>
-	<ul>
-		
-		<li><a href="/about">About</a></li>
-		<li><a href="/api">API</a></li>
 
-			<li><a>Contact</a></li>
-			<li><a href="https://github.com/RobSullivan/pmc-ref">GitHub</a></li>
-			<li><a href="">Twitter</a></li>
+
+<body>
+
+<header class="header" role="banner"><!--taken from the modernizr website-->
+
+<div class="header-logo">
+<a title="pmc-ref.herokuapp.com" href="/">PMC reference checker</a>
+</div>
+<div id="navbar">
+<div id="nav">
+<nav role="navigation" class="header-items">
+	
+		
+		<a class="header-items" href="/about">About</a>
+		<a class="header-items" href="/api">API</a>
+
+		<a class="header-items" href="">Contact</a>
+		<a class="header-items" href="https://github.com/RobSullivan/pmc-ref">GitHub</a>
+		<a class="header-items" href="">Twitter</a>
 	</ul>
 
 </nav>
+</div>
+</div>
+</header>
 
+<div id="main">
 	<div class="forms">
 
 	<form id="doi" class="doi" method="GET" action="/api/v1/articles/status/">
@@ -41,8 +63,9 @@
 	
 	
 	</div>
+</div>
 	
-
+<!--<img id="background" src="images/molecule.png" alt="logo"></img>-->
 
 	<footer>
 		<p>Credit to Vecteezy.com for images</p>
