@@ -1,81 +1,104 @@
-* {
-	box-sizing: border-box;/*ALP article on responseve images in practice*/
-}
-
 body {
   
-  width: 100%;
-  font: 1.25em  Helvetica, Arial, sans-serif;
-  background-color: #fff;
-  background: url(../images/molecule_small.png);
-  background-repeat: no-repeat;
-  background-position: 80% 80%;
+padding-top: 50px;
+margin: 0;
+background: white;
 
   
   
 }
 
-h2 {
-	
-	border-color: black;
-	width: 100%;
-	padding: 1%;
-	color: black;
-	
-	
-	
-
-
-	
+h1, h2{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
 }
 
-nav {
+h1{
+	font-family: 'Fredoka One', cursive;
+	padding: 10%;
+	font-size: 3em;
+	color: #1C6AB8;
+}
+h2{
+	font-family: 'Squada One', cursive;
+	color: #333;
+}
 
+#navbar{
 	width: 100%;
 	height: 50%;
 	text-align: center;
 	position: fixed;
 	top: 0;
 	padding: 0;
-	z-index: 10;
+	/*background: 0 0 #333;*/
 	border-bottom: solid 1px white;
-
-	
-	
+	z-index: 10;
 }
 
-nav a{
-	padding: 0 10px;
-	margin: 0 1px;
-	background: #eee;
+#navbar #logo{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: url(/images/molecule_small.png);
+	background-repeat: no-repeat;
+	top: -5px;
+	left: 10%;
 }
 
-footer p{
+#nav a{
+	margin: 0 5px;
+	line-height: 3em;
+	color: blue;
+	font-size: 1.5em;
+	text-decoration: none;
+	font-family: 'Fredoka One', cursive;
+	display: inline-block;
+	height: 138px;
+	width: 75px;
+	text-align: center;
+}
+
+#nav a:hover{
+	color: black;
+	/*background-position: -75px 0;*/
+}
+
+#main{
+	border-top: solid 2px #333;
+}
+
+#main.frame{
+	height: 700px;
+	position: relative;
+	border-bottom: dotted 5px #fff;
+}
+.footer{
+	background: black;
+	height: 50px;
+	border-top: solid 5px #333;
+}
+.footer p{
 	font-size: 10px;
+	color: white;
 }
 
-nav > ul > li {
-	list-style: none;
-	display: inline;
-	
+.footer a{
+	color: white;
+	text-decoration: none;
 }
 
-div.forms, article {
+
+
+/*div.forms, article {
 	
 	margin: 2.5%;
 	padding: 1%;
 	
-}
+}*/
 
-a, a:link {
-  color: black;
-  text-decoration: none;
-}
 
-a:hover{
-	text-decoration: none;
-	color: red;
-}
 
 
 
