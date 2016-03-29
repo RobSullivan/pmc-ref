@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head><title>PMC reference checker</title>
+<head><title>pmc reference checker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <!--Force IE to use the latest version of its rendering engine-->
@@ -8,7 +8,7 @@
 <meta name="description" content="Modernizr web page test">
 <title>PubMed Central Reference Checker</title>
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Squada+One' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Squada+One' rel='stylesheet' type='text/css'>-->
 <script src="modernizr.js"></script>
 <script>
 console.log("Modernizer is present and version is: ", Modernizr._version);
@@ -19,122 +19,33 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 <body>
 
-<header class="header" role="banner"><!--taken from the modernizr website-->
+<header class ="header" role="banner">
+<div class="header-logo"><a title="pmc-ref" href="/"><i class="logo">pmc ref</i></a></div>
 <!--The page navigation-->
-<div id="navbar">
-<div id="logo"></div>
-<div id="nav">
-<nav role="navigation">
+
+<nav role="navigation" class="header-items">
 	
 		
-		<a href="#about">About</a>
+		<a class="header-item" href="/about">About</a>
+		<a class="header-item" href="/api">API</a>
 		
-		<a href="#api">API</a>
-		<a href="#checker">Checker</a>
+		
 
 </nav>
-</div>
-</div>
+
+
+
+	<!--<hgroup>
+	
+	
+</hgroup>-->
 </header>
 
-<div id="main" role="main">
-	
-
-<div id="about" class="frame">
-<hgroup>
-	<h1 class="title">PubMed Central Reference Checker</h1>
-	<h2 class="subtitle">Finding an article's free references</h2>
-</hgroup>
-<p>PMC reference checker is a quick way of finding out how many references in an article are free to access in PubMed Central. The idea is...</p>
-
-<p>Here are a few dois to get started:</p>
-		<ul>
-			<li>10.1371/journal.pgen.1004432</li>
-			<li>10.1038/nbt.1667</li>
-			<li>10.1038/nature11543</li>
-			<li>10.1016/j.imlet.2006.09.005</li>
-			<li>10.1016/j.imlet.2006.09.005</li>
-			<li>10.1038/hdy.2010.93</li>
-			<li>10.3389/fpls.2014.00367</li>
-			<li>10.1038/nature10158</li>
-			<li>10.1371/journal.pone.0088397</li>
-			<li>10.1186/1471-2164-14-741</li>
-			<li>10.1371/journal.pone.0075609</li>
-			<li>10.1186/1471-2164-14-604</li>
-			<li>10.1186/1471-2164-14-590</li>
-			<li>10.1371/journal.pone.0069852</li>
-			<li>10.1007/s10719-013-9486-6</li>
-			<li>10.1371/journal.pone.0066522</li>
-			<li>10.1371/journal.pone.0051248</li>
-		</ul>
-</div>
-
-<div id="api" class="frame">
-	<p>There are two endpoints to the api...</p>
-<article>
-		<p>PMC reference checker is also an api.</p>
-		<section>
-			<h3>Articles</h3>
-			<p>The articles collection accepts a doi as a parameter</p>
-			<p>For example, /api/v1/articles/doi/10.1038%2Fnature10158 will return all references for this article </p>
-			<p>Give it a try: <a href="/api/v1/articles/doi/10.1038%2Fnature10158">/api/v1/articles/doi/10.1038%2Fnature10158</a></p>
-			<p>To return just the references that are free append the query references=free.</p>
-			<p>For example: <a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free">/api/v1/articles/doi/10.1038%2Fnature10158?references=free</a></p>
-			<p>The status of each article can be found by adding "&amp;count=percent".</p>
-			<p>For example: <a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent">/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent</a></p>
-
-			<h3>Journals</h3>
-			<p>The journals collection accepts a journal title as a parameter. Journal titles are stored using their ISO abbreviation. A list of journals and their ISO abbreviations is <a href="http://www.ncbi.nlm.nih.gov/books/NBK3827/table/pubmedhelp.pubmedhelptable45/">hosted here</a> by ncbi.nih.gov in various formats. Again, a list of a few journal titles can be found below to get started.</p>
-			<p>Please note there isn't any pagination on this call at the moment and some journals have up to 2000 articles.</p>
-			<p>To return the articles for a particular journal use /api/v1/journals/title/:title.</p>
-			<p>Give it a try: <a href="/api/v1/journals/title/Nature">/api/v1/journals/title/Nature</a></p>
-			<ul> 
-			<li>Phil. Trans. R. Soc. Lond. B</li>
-			<li>Curr Psychiatry Rev</li>
-			<li>J Mov Disord</li>
-			<li>Biom J</li>
-			<li>OA Autism</li>
-			<li>Nature</li>
-			<li>Science</li>
-			<li>Mech. Dev.</li>
-			<li>AATCC Rev</li>
-			<li>Heredity</li>
-			<li>Quat Geochronol</li>
-			<li>Exp. Transl. Stroke Med.</li>
-			<li>Nature Methods</li>
-			<li>Nature Protocols</li>
-			<li>Nat Rev Genet</li>
-			<li>Proc Natl Acad Sci USA</li>
-			<li>Comp Biochem Physiol B</li>
-			<li>J. Innate Immun.</li>
-			<li>J. Shellfish Res.</li>
-			<li>Comp. Biochem. Physiol. B Biochem. Mol. Biol.</li>
-			<li>Int. J. Mol. Sci.</li>
-			<li>Biotechniques</li>
-			<li>PLOS Comput. Biol.</li>
-			<li>Plant Breed.</li>
-			<li>BMC Res. Notes</li>
-			<li>Cereal Chem.</li>
-			<li>Front Biosci.</li>
-			<li>Inf. Softw. Technol.</li>
-			<li>Genome Med.</li>
-			<li>Nat Genet</li>
-			<li> Potato Res.</li>
-			<li>Syst. Bot. </li>
-			<li>Plant Mol Biol Rep </li>
-			<li>Am. J. Potato Res. </li>
-			<li>J. Food Compos. Anal. </li>
-			<li>Proc. Int. Conf. Intell. Syst. Mol. Biol. </li>
-			<li>Nat Biotechnol</li>
-			<li>ISRN Oncol </li>
-			<li>Exp. Anim.</li>
-    </ul>
-		</section>
-	</article>
-
-</div>
 
 
+<main id="main" role="main" class="home">
+<h1 class="home-heading">Find which of your article's references are free to read.</h1>
+<h3 class="home-subheading">Using a DOI list all the references that are free to read in PubMed Central.</h2>
 	<div id="checker" class="frame">
 
 	<form id="doi" class="doi" method="GET" action="/api/v1/articles/status/">
@@ -157,22 +68,23 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 	</form>
 	
 	
-	</div>
-</div>
+	</div>	
+
+
+
+</main>
 	
-<!--<img id="background" src="images/molecule.png" alt="logo"></img>-->
 
-	<footer>
-	<div class="footer">
-		<p>Credit to Vecteezy.com for images</p>
-		<a class="header-items" href="">Contact</a>
-		<a class="header-items" href="https://github.com/RobSullivan/pmc-ref">GitHub</a>
-		<a class="header-items" href="">Twitter</a>
-	</div>
+
+	<footer class="footer">
+	
+		<div class="footer-links">
+		<p>
+		<a href="https://mozillascience.org/collaborate">Collaborate</a>
+		<a href="https://rjsullivan.wufoo.com/forms/z129838z0g247k6/">Contact/feedback</a>
+		<a href="https://github.com/RobSullivan/pmc-ref">GitHub</a>
+		</p>
+		</div>
 	</footer>
-
-
-
-<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
