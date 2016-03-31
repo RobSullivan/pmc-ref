@@ -49,8 +49,8 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 	<form id="references" class="submit_form" method="GET" action="/api/v1/references/free/">
 		<label for="doi_references">Show free references</label>
-		<input type="text" name="doi" id="doi_references" placeholder="10.1038/nature10158" class="input-text" />
-		<input class="subbtn" id="show_refs" type="submit" value="submit"/>
+		<input type="text" name="doi" id="doi_references" placeholder="10.1038/nature10158"/>
+		<input id="show_refs" type="submit" value="submit"/>
 	</form>
 
 
@@ -58,7 +58,7 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 
 
-	<form id="status-form" class="submit_form" method="GET" action="/api/v1/articles/status/">
+	<form id="doi" class="submit_form" method="GET" action="/api/v1/articles/status/">
 	
 
 	<label for="enter_doi">Check status</label>
