@@ -29,10 +29,25 @@ font-family: Helvetica;
 	-webkit-box-align:center;
 	align-items:center;
 	font-family: arial;
-	
 
 
-	
+}
+
+.header-logo .logo{
+	display: block;
+	width: 200px;
+	background: url("/images/molecules.svg") center left no-repeat;
+	background-size: contain;
+	max-width: 200px;
+	height: 100px;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content:center;
+	-webkit-box-align:center;
+	align-items:center;
+ 
+
+ 
 }
 
 .header-logo a{
@@ -86,7 +101,8 @@ font-family: Helvetica;
 .header-item:hover,
 .header-item.active {
   outline: none;
-  background: #F8F991;
+  /*background: #F8F991;*/
+  background: #FFAB00;
 }
 
 
@@ -117,6 +133,45 @@ font-family: Helvetica;
 	font-weight: 100;
 }
 
+.doi-forms{
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	color: #444;
+
+
+
+
+
+}
+
+.submit_form{
+	z-index: 3;
+	display: flex;
+	height: 100px;
+	align-items: center;
+	text-align: center;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	justify-content: center;
+	
+}
+
+
+label{
+	color: #444;
+	font-size: 1.25em;
+	font-weight: 100;
+	padding-top: .1em; 
+	padding-right: .25em; 
+	width: 12em;
+	text-align: right;
+}
+
+input{
+	margin: 0; 
+  	padding: 0; 
+  	font-size: 1.25em;
+}
 
 
 .footer{
@@ -153,53 +208,9 @@ font-family: Helvetica;
 }
 
 
-.doi-forms{
-	-webkit-box-flex: 1;
-	flex: 1 1 auto;
-	color: #444;
-
-
-
-
-
-}
-
-.submit_form{
-	z-index: 3;
-	display: flex;
-	height: 100px;
-	-webkit-box-flex: 1;
-	flex: 1;
-	align-items: center;
-	text-align: center;
-	-webkit-box-pack: center;
-	-webkit-box-align: center;
+.footer .image_credit{
+	color: #ececec;
+	font-size: 0.75em;
 	
-	justify-content: center;
-	-webkit-box-align: center;
-	
-}
-
-
-label{
-	color: #444;
-	font-size: 1.25em;
-	font-weight: 100;
-	margin: 0; 
-  padding: 0; 
-  display: block; 
-  padding-top: .1em; 
-  padding-right: .25em; 
-  width: 12em; 
-  text-align: right; 
-  float: left;
-  
-
-  }
-
-input{
-	margin: 0; 
-  	padding: 0; 
-  	font-size: 1.25em;
 }
 
