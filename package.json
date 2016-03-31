@@ -1,7 +1,7 @@
 {
-  "engines":{
-    "node":"4.2.6",
-    "npm":"2.14.12"
+  "engines": {
+    "node": "4.2.6",
+    "npm": "2.14.12"
   },
   "name": "pmc-ref",
   "version": "0.0.1",
@@ -37,7 +37,7 @@
     "mocha": "*",
     "mongodb": "2.1.7",
     "mongoose": "4.4.2",
-    "newrelic": "~1.25.1",
+    "newrelic": "~1.26.1",
     "request": "2.69.0",
     "split": "1.0.0",
     "supertest": "1.1.0",
