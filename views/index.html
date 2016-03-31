@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head><title>pmc reference checker</title>
+<head><title>pmc-ref: a pubmed central reference checker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <!--Force IE to use the latest version of its rendering engine-->
@@ -34,11 +34,6 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 </nav>
 
 
-
-	<!--<hgroup>
-	
-	
-</hgroup>-->
 </header>
 
 
@@ -46,9 +41,9 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 <main id="main" role="main" class="home">
 <h1 class="home-heading">Find which of your article's references are free to read.</h1>
 <h3 class="home-subheading">Using a DOI list all the references that are free to read in PubMed Central.</h2>
-	<div id="checker" class="frame">
+	<div id="checker" class="doi-forms">
 
-	<form id="doi" class="doi" method="GET" action="/api/v1/articles/status/">
+	<form id="status-form" class="status-form" method="GET" action="/api/v1/articles/status/">
 	
 
 	<label for="enter_doi">Check status:</label>
@@ -61,7 +56,7 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 	
 	</form>
 
-	<form id="references" method="GET" action="/api/v1/references/free/">
+	<form id="references" class="" method="GET" action="/api/v1/references/free/">
 		<label for="doi_references">Show free references:</label>
 		<input type="text" name="doi" id="doi_references" placeholder="10.1038/nature10158" class="input-text" />
 		<input id="show_refs" type="submit" value="submit"/>

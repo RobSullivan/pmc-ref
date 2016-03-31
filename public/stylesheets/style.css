@@ -82,6 +82,13 @@ font-family: Helvetica;
 	flex: 1;
 }
 
+.header-item:focus,
+.header-item:hover,
+.header-item.active {
+  outline: none;
+  background: #F8F991;
+}
+
 
 .main{
 
@@ -145,6 +152,12 @@ font-family: Helvetica;
 	text-decoration: underline;
 }
 
+
+.doi-forms{}
+
+.status-form{
+
+}
 
 
 
