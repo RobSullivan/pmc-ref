@@ -3,17 +3,14 @@
 }
 
 body {
-  
-background: #ececec;
-display: flex;
-/*don;t know what webkit does nor flex-direction*/
--webkit-box-orient: veritcal;
-flex-direction: column;
-font-family: Helvetica;
-
-  
-  
+	background: #ececec;
+	display: flex;
+	/*don;t know what webkit does nor flex-direction*/
+	-webkit-box-orient: veritcal;
+	flex-direction: column;
+	font-family: Helvetica; 
 }
+
 .header{
 	display: flex;
 	background: #fff;
@@ -25,12 +22,10 @@ font-family: Helvetica;
 .header-logo{
 	display: flex;
 	-webkit-box-pack: center;
-	justify-content:center;
-	-webkit-box-align:center;
-	align-items:center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
 	font-family: arial;
-
-
 }
 
 .header-logo .logo{
@@ -42,12 +37,9 @@ font-family: Helvetica;
 	height: 100px;
 	display: flex;
 	-webkit-box-pack: center;
-	justify-content:center;
-	-webkit-box-align:center;
-	align-items:center;
- 
-
- 
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
 }
 
 .header-logo a{
@@ -68,7 +60,6 @@ font-family: Helvetica;
 }
 
 .header a{
-
 	text-decoration: none;
 	display: flex;
 	height: 100%;
@@ -79,14 +70,11 @@ font-family: Helvetica;
 	font-weight: 600;
 	-webkit-box-pack: center;
 	-webkit-box-align: center;
-	
 	justify-content: center;
 	-webkit-box-align: center;
 	align-items: center;
 
 }
-
-
 
 
 .header-item{
@@ -101,15 +89,13 @@ font-family: Helvetica;
 .header-item:hover,
 .header-item.active {
   outline: none;
-  /*background: #F8F991;*/
+  /*background: #F8F991; alternate*/
   background: #FFAB00;
 }
 
-
 .main{
-
 	color: #444;
-	margin:65px 40px;
+	margin: 65px 40px;
 }
 
 .home{
@@ -118,7 +104,7 @@ font-family: Helvetica;
 
 .home h1{
 	font-size: 4em;
-	margin-top:0;
+	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 1.16em;
 	letter-spacing: -.02em;
@@ -137,11 +123,6 @@ font-family: Helvetica;
 	-webkit-box-flex: 1;
 	flex: 1 1 auto;
 	color: #444;
-
-
-
-
-
 }
 
 .submit_form{
@@ -211,6 +192,6 @@ input{
 .footer .image_credit{
 	color: #ececec;
 	font-size: 0.75em;
-	
+
 }
 

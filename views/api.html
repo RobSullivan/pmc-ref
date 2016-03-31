@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head><title>PMC reference checker</title>
-<link rel= stylesheet  type= text/css  href= /stylesheets/style.css >
+<html class="no-js" lang="en">
+<head><title>pmc-ref: a pubmed central reference checker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<!--Force IE to use the latest version of its rendering engine-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Modernizr web page test">
+<title>PubMed Central Reference Checker</title>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Squada+One' rel='stylesheet' type='text/css'>-->
+<script src="modernizr.js"></script>
+<script>
+console.log("Modernizer is present and version is: ", Modernizr._version);
+</script>
+<!--<link href='http://fonts.googleapis.com/css?family=Fredoka+One|Squada+One' rel='stylesheet' type='text/css'>-->
 </head>
+
+
 <body>
-<a href="/"><h2>PMC reference checker</h2></a>
-<nav>
-	<ul>
+
+<header class ="header" role="banner">
+<div class="header-logo"><a title="pmc-ref" href="/"><i class="logo"></i></a></div>
+<!--The page navigation-->
+
+<nav role="navigation" class="header-items">
+	
 		
-		<li><a href="/about">About</a></li>
-		<li><a href="/api">API</a></li>
+		<a class="header-item" href="/about">About</a>
+		<a class="header-item" href="/api">API</a>
 		
-		<li><a>Contact</a></li>
-			<li><a href="https://github.com/RobSullivan/pmc-ref">GitHub</a></li>
-			<li><a href="">Twitter</a></li>
 		
-	</ul>
 
 </nav>
 
-	
 
-	<article>
+</header>
+
+
+
+<main id="main" role="main" class="home">
+
+
+<article>
 		<p>PMC reference checker is also an api.</p>
 		<section>
 			<h3>Articles</h3>
@@ -81,12 +101,21 @@
     </ul>
 		</section>
 	</article>
+
+</main>
 	
 
 
-
-
-
-
+	<footer class="footer">
+	
+		<div class="footer-links">
+		<p>
+		<a href="https://mozillascience.org/collaborate">Collaborate</a>
+		<a href="https://rjsullivan.wufoo.com/forms/z129838z0g247k6/">Contact/feedback</a>
+		<a href="https://github.com/RobSullivan/pmc-ref">GitHub</a>
+		</p>
+		</div>
+		<p class="image_credit">Image designed by Vecteezy.com</p>
+	</footer>
 </body>
 </html>
