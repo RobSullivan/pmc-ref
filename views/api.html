@@ -42,22 +42,21 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 
 <article>
-		<p>PMC reference checker is also an api.</p>
-		<section>
+	
 			<h3>Articles</h3>
 			<p>The articles collection accepts a doi as a parameter</p>
-			<p>For example, /api/v1/articles/doi/10.1038%2Fnature10158 will return all references for this article </p>
-			<p>Give it a try: <a href="/api/v1/articles/doi/10.1038%2Fnature10158">/api/v1/articles/doi/10.1038%2Fnature10158</a></p>
+			<p>For example, <a href="/api/v1/articles/doi/10.1038%2Fnature10158">/api/v1/articles/doi/10.1038%2Fnature10158</a> will return all references for this article.</p>
+			
 			<p>To return just the references that are free append the query references=free.</p>
-			<p>For example: <a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free">/api/v1/articles/doi/10.1038%2Fnature10158?references=free</a></p>
+			<p><a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free">/api/v1/articles/doi/10.1038%2Fnature10158?references=free</a></p>
 			<p>The status of each article can be found by adding "&amp;count=percent".</p>
-			<p>For example: <a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent">/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent</a></p>
+			<p><a href="/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent">/api/v1/articles/doi/10.1038%2Fnature10158?references=free&amp;count=percent</a></p>
 
 			<h3>Journals</h3>
-			<p>The journals collection accepts a journal title as a parameter. Journal titles are stored using their ISO abbreviation. A list of journals and their ISO abbreviations is <a href="http://www.ncbi.nlm.nih.gov/books/NBK3827/table/pubmedhelp.pubmedhelptable45/">hosted here</a> by ncbi.nih.gov in various formats. Again, a list of a few journal titles can be found below to get started.</p>
-			<p>Please note there isn't any pagination on this call at the moment and some journals have up to 2000 articles.</p>
-			<p>To return the articles for a particular journal use /api/v1/journals/title/:title.</p>
-			<p>Give it a try: <a href="/api/v1/journals/title/Nature">/api/v1/journals/title/Nature</a></p>
+			<p>The journals collection accepts a journal title as a parameter.</p> 
+			
+			<p><a href="/api/v1/journals/title/Nature">/api/v1/journals/title/Nature</a></p>
+			<p>Other journals include:</p>
 			<ul> 
 			<li>Phil. Trans. R. Soc. Lond. B</li>
 			<li>Curr Psychiatry Rev</li>
@@ -68,38 +67,9 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 			<li>Science</li>
 			<li>Mech. Dev.</li>
 			<li>AATCC Rev</li>
-			<li>Heredity</li>
-			<li>Quat Geochronol</li>
-			<li>Exp. Transl. Stroke Med.</li>
-			<li>Nature Methods</li>
-			<li>Nature Protocols</li>
-			<li>Nat Rev Genet</li>
-			<li>Proc Natl Acad Sci USA</li>
-			<li>Comp Biochem Physiol B</li>
-			<li>J. Innate Immun.</li>
-			<li>J. Shellfish Res.</li>
-			<li>Comp. Biochem. Physiol. B Biochem. Mol. Biol.</li>
-			<li>Int. J. Mol. Sci.</li>
-			<li>Biotechniques</li>
-			<li>PLOS Comput. Biol.</li>
-			<li>Plant Breed.</li>
-			<li>BMC Res. Notes</li>
-			<li>Cereal Chem.</li>
-			<li>Front Biosci.</li>
-			<li>Inf. Softw. Technol.</li>
-			<li>Genome Med.</li>
-			<li>Nat Genet</li>
-			<li> Potato Res.</li>
-			<li>Syst. Bot. </li>
-			<li>Plant Mol Biol Rep </li>
-			<li>Am. J. Potato Res. </li>
-			<li>J. Food Compos. Anal. </li>
-			<li>Proc. Int. Conf. Intell. Syst. Mol. Biol. </li>
-			<li>Nat Biotechnol</li>
-			<li>ISRN Oncol </li>
-			<li>Exp. Anim.</li>
+			
     </ul>
-		</section>
+		
 	</article>
 
 </main>

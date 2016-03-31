@@ -154,6 +154,27 @@ input{
   	font-size: 1.25em;
 }
 
+article p{
+	font-size: 1.25em;
+	color: #444;
+	font-weight: 100;
+}
+
+article li{
+	list-style: none;
+	font-size: 1.25em;
+	color: #444;
+	font-weight: 100;
+}
+
+article a{
+	color: #444;
+}
+
+article a:hover{
+	color: #FFAB00;
+}
+
 
 .footer{
 	position: relative;
