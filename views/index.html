@@ -40,13 +40,28 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 <main id="main" role="main" class="home">
 <h1 class="home-heading">Find which of your article's references are free to read.</h1>
-<h3 class="home-subheading">Using a DOI list all the references that are free to read in PubMed Central.</h2>
-	<div id="checker" class="doi-forms">
+<h3 class="home-subheading">Using a DOI list all the references that are free to read in PubMed Central or check the percentage of free references.</h2>
 
-	<form id="status-form" class="status-form" method="GET" action="/api/v1/articles/status/">
+
+<div id="checker" class="doi-forms">
+
 	
 
-	<label for="enter_doi">Check status:</label>
+	<form id="references" class="submit_form" method="GET" action="/api/v1/references/free/">
+		<label for="doi_references">Show free references</label>
+		<input type="text" name="doi" id="doi_references" placeholder="10.1038/nature10158" class="input-text" />
+		<input class="subbtn" id="show_refs" type="submit" value="submit"/>
+	</form>
+
+
+
+
+
+
+	<form id="status-form" class="submit_form" method="GET" action="/api/v1/articles/status/">
+	
+
+	<label for="enter_doi">Check status</label>
 	<input type="text" name="doi" id="enter_doi"  placeholder="10.1038/nature10158" class="input-text" />
 	<input id="submit_doi" type="submit" value="submit" />
 
@@ -54,12 +69,6 @@ console.log("Modernizer is present and version is: ", Modernizr._version);
 
 
 	
-	</form>
-
-	<form id="references" class="" method="GET" action="/api/v1/references/free/">
-		<label for="doi_references">Show free references:</label>
-		<input type="text" name="doi" id="doi_references" placeholder="10.1038/nature10158" class="input-text" />
-		<input id="show_refs" type="submit" value="submit"/>
 	</form>
 	
 	
