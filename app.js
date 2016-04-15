@@ -20,15 +20,13 @@ var getReferences = require("./routes/get_references"),
 
 module.exports = function(config){
 
-	//{authMechanism: 'ScramSHA1'}
-	//console.log(config.mongoose.host, config.mongoose.port, config.mongoose.db)
-	//why if I set db does it not connect to pmcref?
-	mongoose.connect(process.env.MONGOLAB_URI || config.mongoose.host);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
-	//mongoose.connect(process.env.MONGOLAB_URI);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
+	
+	mongoose.connect(process.env.MONGOLAB_URI || config.mongoose.host);
+	
 
 	var db = mongoose.connection;
 
-	//db.open()
+
 	db.on("error", console.error.bind(console, "connection error"));
 	db.once("open", function callback(){
 
