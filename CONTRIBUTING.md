@@ -39,12 +39,12 @@ There's a lot I need help with, not just coding. So if you have enthusiasm, expe
 Here are the instructions for getting the code and getting the application working on your machine.
 
 
-####Set up####
+#### Set up
 
-pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and [Heroku Toolbelt](https://toolbelt.heroku.com/). Versions used are Node 4.2.6 and Mongo 3.2. Heroku Toolbelt is not strictly necessary and without it this app can still be run locally. But this is hosted on Heroku and it just helps a little way to ensure any changes still work with it.
+pmc-ref uses [Node.js](https://nodejs.org/download/), [MongoDB](http://www.mongodb.org/downloads) and [Heroku Toolbelt](https://toolbelt.heroku.com/). Heroku isn't necessary to get this up and running locally. Versions used are Node 4.2.6 and Mongo 3.2. 
 
 
-####Loading test data into MongoDB####
+#### Loading test data into MongoDB
 
 With Node, MongoDB and Heroku installed download and unzip the current data set data from [here](https://drive.google.com/file/d/0B3AgUDfIExOnY1h6aUlRZkk4UTg/view) (64MB).
 
@@ -62,7 +62,7 @@ Start an instance of mongo with the `mongo` command and check there is some data
 
 Log an issue if you need help.
 
-####Up and running####
+#### Up and running
 
 Once the test data has been loaded, clone or fork this repo and run `npm install` from the root. There are some known issues with node-gyp and Kerberos which are related to Mongo and/or Mongoose but it  "should" be ok.
 
@@ -70,15 +70,19 @@ If installing on Windows these instructions might be useful for deciphering inst
 
 Check the mongod process is still running.
 
-Once you have everything open app.js and uncomment line `mongoose.connect(config.mongoose.host);` and comment out the  line`mongoose.connect(process.env.MONGOLAB_URI);`. Yup. Working on config and environment stuff.
+###### With Heroku
+Create a .env file in the root of the project and add a couple of lines like this
+`MONGOOSE_HOST=mongodb://localhost/pmcref`
+`SERVER_PORT=5000`
 
-If not using Heroku use the command `MONGOOSE_HOST=mongodb://localhost/[desired name of database] node main.js` to start the Node process.
+Then either use `heroku local` or `heroku local web -f Procfile.test`
 
-If using Heroku:
+###### Without Heroku
 
-`heroku local web -f Procfile.test` or create a .env file, add 'MONGOOSE_HOST=mongodb://localhost/[desired na...blah]' and just run `heroku local`. It will default to port 5000.
+`MONGOOSE_HOST=mongodb://localhost/pmcref SERVER_PORT=5000 node main.js`
 
-Open the browser at localhost:5000 and start using the API!
+
+Open the browser at localhost:5000.
 
 
 
@@ -90,13 +94,13 @@ On Windows:
 
 `set MONGOOSE_HOST=mongodb://localhost/`,
 `set MONGOOSE_DB=pmcref`,
-`set SERVER_PORT=1337`,
+`set SERVER_PORT=5000`,
 
 - run the command
 
 `node main.js %MONGOOSE_HOST% %MONGOOSE_DB% %SERVER_PORT%`
 
-- open browser at [http://localhost:1337/](http://localhost:1337/)
+- open browser at [http://localhost:5000/](http://localhost:5000/)
 
 
 ### Tests
@@ -123,4 +127,5 @@ Read more about how things work over on the [wiki](https://github.com/RobSulliva
  
 ### Other resources
 
+JavaScript Testing Recipes https://jstesting.jcoglan.com/
 
