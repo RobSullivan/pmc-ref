@@ -9,4 +9,4 @@ var server = app({
 	}
 })
 
-server.listen(env.SERVER_PORT)// env.SERVER_PORT for local foreman start, env.PORT for live
+server.listen(env.SERVER_PORT || env.PORT)// env.SERVER_PORT for local foreman start, env.PORT for live
