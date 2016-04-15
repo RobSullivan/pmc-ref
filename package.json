@@ -18,11 +18,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "npm run test-functional && npm run test-citations && npm run test-refs && npm run test-docs",
-    "test-functional": "mocha -R list tests/functional/articles.endpoint.tests.js",
-    "test-citations": "mocha --ui tdd -R list tests/pipeline/tests/citation.controller.unit.tests.js",
-    "test-refs": "mocha --ui tdd -R list tests/pipeline/tests/reference.controller.unit.tests.js",
-    "test-docs": "mocha --ui tdd -R list tests/pipeline/tests/document.controller.unit.tests.js"
+    "test": "npm run test-functional",
+    "test-functional": "mocha -R list tests/functional/articles.endpoint.tests.js"
   },
   "dependencies": {
     "JSONStream": "1.0.7",
