@@ -25,6 +25,7 @@ module.exports = function(config){
 	//why if I set db does it not connect to pmcref?
 	mongoose.connect(process.env.MONGOLAB_URI || config.mongoose.host);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
 	//mongoose.connect(process.env.MONGOLAB_URI);//for local foreman start config.mongoose.host, config.mongoose.port, config.mongoose.db For live - process.env.MONGOLAB_URI
+
 	var db = mongoose.connection;
 
 	//db.open()
