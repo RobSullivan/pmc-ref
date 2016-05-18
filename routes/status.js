@@ -35,7 +35,7 @@ module.exports = function(request, response, mongoose){
 			if(err) console.log(err);
 			if(result[0] === undefined){
 				response.set('Access-Control-Allow-Origin', '*')
-				response.json(200,{result:"doi not found"})
+				response.status(200).json({result:"doi not found"})
 
 			}else{
 				var totalRefCount = result[0].references.length;
@@ -44,14 +44,14 @@ module.exports = function(request, response, mongoose){
 				ArticleModel.count({$and:[{is_ref_of: ObjectId(result[0]._id.toString())}, {free_access:true}]}, function(error, data){
 				if(error) {
 					response.set('Access-Control-Allow-Origin', '*')
-					response.json(500, {error:error.message});
+					response.status(500).json({error:error.message});
 				}else{
 					var freeRefCount = data;
 
 					var percentage = Math.round((freeRefCount / totalRefCount) * 100);
 					
 					response.set('Access-Control-Allow-Origin', '*')
-					response.json(200,{doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
+					response.status(200).json({doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
 				}
 
 			})
@@ -62,7 +62,7 @@ module.exports = function(request, response, mongoose){
 		
 	  //how to contend with a doi but the wrong query?
 
-	if(errors.length > 0) return response.json(400, {errors: errors});
+	if(errors.length > 0) return response.status(400).json({errors: errors});
 
 
 }

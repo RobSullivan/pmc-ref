@@ -14,10 +14,10 @@ module.exports = function(request, response, mongoose){
 				.exec(function(err, journal){
 					if(err){
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(500, {error: err.message});
+						response.status(500).json({error: err.message});
 					}else{
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(200, {journal: journal} );
+						response.status(200).json({journal: journal} );
 					}
 				});
 	};

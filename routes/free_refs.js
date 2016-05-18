@@ -20,10 +20,10 @@ module.exports = function(request, response, mongoose){
 				.exec(function(error, article){
 					if(error){
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(500, {error: error.message});
+						response.status(500).json({error: error.message});
 					} else{
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(200, {article: article});
+						response.status(200).json({article: article});
 					}
 				});
 		

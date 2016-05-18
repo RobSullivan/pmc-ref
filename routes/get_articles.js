@@ -24,7 +24,7 @@ module.exports = function(request, response, mongoose){
 		ArticleModel.find({doi:doi}, "references" ,function(err, result){
 			if(err) console.log(err);
 			if(result[0] === undefined){
-				response.json(200,{result:"doi not found"})
+				response.status(200).json({result:"doi not found"})
 				//should add logging to find what dois people are submitting.
 
 			}else{
@@ -34,13 +34,13 @@ module.exports = function(request, response, mongoose){
 				ArticleModel.count({$and:[{is_ref_of: ObjectId(result[0]._id.toString())}, {free_access:true}]}, function(error, data){
 				if(error) {
 					response.set('Access-Control-Allow-Origin', '*')
-					response.json(500, {error:error.message});
+					response.status(500).json({error:error.message});
 				}else{
 					var freeRefCount = data;
 
 					var percentage = Math.round((freeRefCount / totalRefCount) * 100);
 					response.set('Access-Control-Allow-Origin', '*')
-					response.json(200,{doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
+					response.status(200).json({doi: doi, total_refs: totalRefCount, free_access_refs: freeRefCount, percentage: percentage});
 				}
 
 			})
@@ -61,10 +61,10 @@ module.exports = function(request, response, mongoose){
 				.exec(function(error, article){
 					if(error){
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(500, {error: error.message});
+						response.status(500).json({error: error.message});
 					} else{
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(200, {article: article});
+						response.status(200).json({article: article});
 					}
 				});
 	} else if(doi && citations ==="free"){
@@ -78,10 +78,10 @@ module.exports = function(request, response, mongoose){
 				.exec(function(error, article){
 					if(error){
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(500, {error: error.message});
+						response.status(500).json({error: error.message});
 					} else{
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(200, {article: article});
+						response.staus(200).json({article: article});
 					}
 				});
 	} else if(doi){
@@ -92,7 +92,7 @@ module.exports = function(request, response, mongoose){
 					.exec(function(error, article){
 					if(error){
 						response.set('Access-Control-Allow-Origin', '*')
-						response.json(500, {error: error.message});
+						response.status(500).json({error: error.message});
 					} else{
 						response.set('Access-Control-Allow-Origin', '*')
 						response.status(200).json({article: article});
@@ -100,7 +100,7 @@ module.exports = function(request, response, mongoose){
 				});
 	}  //how to contend with a doi but the wrong query?
 
-	if(errors.length > 0) return response.json(400, {errors: errors});
+	if(errors.length > 0) return response.status(400).json({errors: errors});
 
 
 }
