@@ -89,6 +89,10 @@ module.exports = function(config){
 	//app.post("/v1/article/insert/:doi")
 
 	return http.createServer(app);
+	//why is http.createServer being used?
+	//migrate to express 4  says use express().
+	//probably from the testing book I read.
+
 	
 
 }
