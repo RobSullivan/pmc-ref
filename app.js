@@ -42,7 +42,7 @@ module.exports = function(config){
 	app.set("views", path.resolve(process.cwd(), "views"));
 	app.set("view engine", "jade");
 
-	app.use(bodyParser.urlencoded());
+	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(express.static(path.resolve(process.cwd(), "public")))
 
 
