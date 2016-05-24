@@ -72,6 +72,10 @@ module.exports = function(config){
 		getJournals(request, response, db)// - displays articles by journal
 	})
 
+	app.get("/api/v1/article/check/:doi?", function(request, response){
+		check(request, response, db)
+	});
+
 
 	// #2
 

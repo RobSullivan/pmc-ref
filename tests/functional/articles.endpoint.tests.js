@@ -49,6 +49,22 @@ describe("GET routes", function(){
 
 	});
 
+	//Work carried out on refactor-get-articles branch
+	it("/api/v1/article/check/:doi?", function(done){
+		request.get("/api/v1/article/check/10.1038%2Fnature10158")
+		.expect(200)
+		.expect("Access-Control-Allow-Origin", "*", done);
+	})
+
+	it.skip("check", function(done){
+		request.get()
+		.expect(function(res){
+			res.body = {"doi":"10.1038/nature11543","total_refs":57,
+			"free_access_refs":27,"percentage":47}
+		})
+	})
+	//end
+
 	it.skip("/api/v1/citations/doi is successful", function(done){ //#2
 
 		request.get("/api/v1/citations/doi/10.1038%2Fnature10158")
