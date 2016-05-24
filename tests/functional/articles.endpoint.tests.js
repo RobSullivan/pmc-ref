@@ -23,7 +23,7 @@ describe("GET routes", function(){
 		.expect("Access-Control-Allow-Origin", "*", done)
 	});
 
-	it("/api/v1/articles/doi:doi is successful", function(done){
+	it("/api/v1/articles/:doi is successful", function(done){
 		request.get("/api/v1/articles/doi/10.1038%2Fnature10158")
 		.expect(200)
 		.expect("Access-Control-Allow-Origin", "*", done);
@@ -53,7 +53,11 @@ describe("GET routes", function(){
 	it("/api/v1/article/check/:doi?", function(done){
 		request.get("/api/v1/article/check/10.1038%2Fnature10158")
 		.expect(200)
-		.expect("Access-Control-Allow-Origin", "*", done);
+		.end(function(err, res){
+			if(err) return done(err);
+			done();
+		});
+		//.expect("Access-Control-Allow-Origin", "*", done);
 	})
 
 	it.skip("check", function(done){

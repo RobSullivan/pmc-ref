@@ -8,8 +8,9 @@ var express = require("express"),
 	mongoose = require("mongoose");
 
 var getReferences = require("./routes/get_references"),
-	getArticles = require("./routes/get_articles"),
+	getArticle = require("./routes/get_article"),
 	getJournals = require("./routes/get_journals"),
+	check = require("./routes/check"),
 	status = require("./routes/status"),
 	freeRefs = require("./routes/free_refs"),
 	home = require("./routes/home"),
@@ -64,7 +65,7 @@ module.exports = function(config){
 	app.get("/api", api);
 
 	app.get("/api/v1/articles/doi/:doi?", function(request, response){
-		getArticles(request, response, db)
+		getArticle(request, response, db)
 	});
 
 	
