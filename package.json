@@ -1,7 +1,7 @@
 {
-  "engines":{
-    "node":"4.2.6",
-    "npm":"2.14.12"
+  "engines": {
+    "node": "4.2.6",
+    "npm": "2.14.12"
   },
   "name": "pmc-ref",
   "version": "0.0.1",
@@ -39,6 +39,6 @@
     "supertest": "1.1.0",
     "underscore": "*",
     "webdriverjs": "1.7.5",
-    "xmldoc": "0.4.0"
+    "xmldoc": "0.5.1"
   }
 }
