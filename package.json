@@ -1,7 +1,7 @@
 {
-  "engines":{
-    "node":"4.2.6",
-    "npm":"2.14.12"
+  "engines": {
+    "node": "4.2.6",
+    "npm": "2.14.12"
   },
   "name": "pmc-ref",
   "version": "0.0.1",
@@ -32,7 +32,7 @@
     "jade": "~1.11.0",
     "less-middleware": "*",
     "mocha": "*",
-    "mongodb": "2.1.7",
+    "mongodb": "2.1.13",
     "mongoose": "4.4.3",
     "request": "2.69.0",
     "split": "1.0.0",
