@@ -1,7 +1,7 @@
 {
-  "engines":{
-    "node":"4.2.6",
-    "npm":"2.14.12"
+  "engines": {
+    "node": "4.2.6",
+    "npm": "2.14.12"
   },
   "name": "pmc-ref",
   "version": "0.0.1",
@@ -22,7 +22,7 @@
     "test-functional": "mocha -R list tests/functional/articles.endpoint.tests.js"
   },
   "dependencies": {
-    "JSONStream": "1.0.7",
+    "JSONStream": "1.1.1",
     "async": "1.5.2",
     "body-parser": "^1.14.2",
     "chai": "*",
