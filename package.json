@@ -22,7 +22,7 @@
     "test-functional": "mocha -R list tests/functional/articles.endpoint.tests.js"
   },
   "dependencies": {
-    "JSONStream": "1.0.7",
+    "JSONStream": "1.2.0",
     "async": "1.5.2",
     "body-parser": "^1.14.2",
     "chai": "*",
