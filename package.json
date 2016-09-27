@@ -31,7 +31,7 @@
     "hjs": "*",
     "jade": "~1.11.0",
     "less-middleware": "*",
-    "mocha": "*",
+    "mocha": "3.1.0",
     "mongodb": "2.1.7",
     "mongoose": "4.4.3",
     "request": "2.69.0",
