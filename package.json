@@ -36,7 +36,7 @@
     "mongoose": "4.4.3",
     "request": "2.69.0",
     "split": "1.0.0",
-    "supertest": "1.1.0",
+    "supertest": "2.0.1",
     "underscore": "*",
     "webdriverjs": "1.7.5",
     "xmldoc": "0.4.0"
