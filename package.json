@@ -39,6 +39,6 @@
     "supertest": "1.1.0",
     "underscore": "*",
     "webdriverjs": "1.7.5",
-    "xmldoc": "0.4.0"
+    "xmldoc": "1.0.0"
   }
 }
