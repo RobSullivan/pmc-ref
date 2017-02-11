@@ -24,7 +24,7 @@
   "dependencies": {
     "JSONStream": "1.0.7",
     "async": "1.5.2",
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.16.1",
     "chai": "*",
     "event-stream": "3.3.2",
     "express": "4.13.4",
