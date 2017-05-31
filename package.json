@@ -25,7 +25,7 @@
     "JSONStream": "1.0.7",
     "async": "1.5.2",
     "body-parser": "^1.14.2",
-    "chai": "*",
+    "chai": "4.0.1",
     "event-stream": "3.3.2",
     "express": "4.13.4",
     "hjs": "*",
